@@ -1,7 +1,7 @@
 {
   "required": false,
   "minVersion": "0.8",
-  "package": "funky.fleshmod.mixin",
+  "package": "io.github.funkychicken493.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
   ],

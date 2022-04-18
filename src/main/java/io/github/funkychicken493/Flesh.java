@@ -2,6 +2,7 @@ package io.github.funkychicken493;
 
 import io.github.funkychicken493.block.FleshBlock;
 import io.github.funkychicken493.block.FleshBlockSlab;
+import io.github.funkychicken493.block.FleshBlockStairs;
 import io.github.funkychicken493.item.FleshPaste;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -15,18 +16,25 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Flesh implements ModInitializer {
+	public static final String MOD_ID = "flesh";
+	public static final String MOD_NAME = "Flesh";
+	public static final String MOD_VERSION = "1.0.0";
+	public static final String MOD_AUTHOR = "funkychicken493";
+
 	// initialize logger provided by slf4j
 	public static final Logger LOGGER = LoggerFactory.getLogger("flesh");
 
 	private static final FleshBlock FLESH_BLOCK = new FleshBlock();
 	private static final FleshBlockSlab FLESH_BLOCK_SLAB = new FleshBlockSlab();
+	private static final FleshBlockStairs FLESH_BLOCK_STAIRS = new FleshBlockStairs();
 	private static final FleshPaste FLESH_PASTE = new FleshPaste();
 
 	private static final BlockItem FLESH_BLOCK_ITEM = new BlockItem(FLESH_BLOCK, new FabricItemSettings());
 	private static final BlockItem FLESH_BLOCK_SLAB_ITEM = new BlockItem(FLESH_BLOCK_SLAB, new FabricItemSettings());
+	private static final BlockItem FLESH_BLOCK_STAIRS_ITEM = new BlockItem(FLESH_BLOCK_STAIRS, new FabricItemSettings());
 
 	public static final ItemGroup FLESH_GROUP_ITEMS = FabricItemGroupBuilder.create(
-			new Identifier("flesh", "items"))
+			new Identifier(MOD_ID, "items"))
 			.icon(() -> new ItemStack(FLESH_PASTE))
 			.appendItems(stacks -> {
 				stacks.add(new ItemStack(FLESH_PASTE));
@@ -34,10 +42,12 @@ public class Flesh implements ModInitializer {
 			.build();
 
 	public static final ItemGroup FLESH_GROUP_BLOCKS = FabricItemGroupBuilder.create(
-			new Identifier("flesh", "blocks"))
+			new Identifier(MOD_ID, "blocks"))
 			.icon(() -> new ItemStack(FLESH_BLOCK_ITEM))
 			.appendItems(stacks -> {
 				stacks.add(new ItemStack(FLESH_BLOCK_ITEM));
+				stacks.add(new ItemStack(FLESH_BLOCK_SLAB_ITEM));
+				stacks.add(new ItemStack(FLESH_BLOCK_STAIRS_ITEM));
 			})
 			.build();
 
@@ -47,12 +57,14 @@ public class Flesh implements ModInitializer {
 		// I'd like to make it known that GitHub Copilot generated this code.
 		LOGGER.info("Flesh is flesh. Where there's smoke there's fire.");
 
-		Registry.register(Registry.BLOCK, new Identifier("flesh", "flesh_block"), FLESH_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier("flesh", "flesh_block"), FLESH_BLOCK_ITEM);
-		Registry.register(Registry.BLOCK, new Identifier("flesh", "flesh_block_slab"), FLESH_BLOCK_SLAB);
-		Registry.register(Registry.ITEM, new Identifier("flesh", "flesh_block_slab"), FLESH_BLOCK_SLAB_ITEM);
+		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_block"), FLESH_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_block"), FLESH_BLOCK_ITEM);
+		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_block_slab"), FLESH_BLOCK_SLAB);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_block_slab"), FLESH_BLOCK_SLAB_ITEM);
+		Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_block_stairs"), FLESH_BLOCK_STAIRS);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_block_stairs"), FLESH_BLOCK_STAIRS_ITEM);
 
-		Registry.register(Registry.ITEM, new Identifier("flesh", "flesh_paste"), FLESH_PASTE);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_paste"), FLESH_PASTE);
 
 	}
 }

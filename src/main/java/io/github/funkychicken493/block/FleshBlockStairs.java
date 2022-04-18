@@ -1,7 +1,6 @@
 package io.github.funkychicken493.block;
 
 import net.minecraft.block.*;
-import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
@@ -16,9 +15,9 @@ import net.minecraft.world.WorldAccess;
 
 import java.util.Random;
 
-public class FleshBlockSlab extends SlabBlock implements LandingBlock {
-    public FleshBlockSlab() {
-        super(Settings.of(Material.STONE)
+public class FleshBlockStairs extends StairsBlock implements LandingBlock {
+    public FleshBlockStairs() {
+        super(Blocks.COBBLESTONE_STAIRS.getDefaultState(), Settings.of(Material.STONE)
                 .sounds(new BlockSoundGroup(
                         0.5f,
                         0.7f,
@@ -37,12 +36,8 @@ public class FleshBlockSlab extends SlabBlock implements LandingBlock {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
         world.createAndScheduleBlockTick(pos, this, this.getFallDelay());
-        if(state.get(SlabBlock.TYPE) == SlabType.TOP) {
-            world.setBlockState(pos, state.with(SlabBlock.TYPE, SlabType.BOTTOM));
-        }
     }
 
     @Override
@@ -52,7 +47,6 @@ public class FleshBlockSlab extends SlabBlock implements LandingBlock {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (canFallThrough(world.getBlockState(pos.down())) && pos.getY() >= world.getBottomY()) {
             FallingBlockEntity fallingBlockEntity = FallingBlockEntity.spawnFromBlock(world, pos, state);

@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "funky.fleshmod.Flesh"
+      "io.github.funkychicken493.Flesh"
     ]
   },
   "mixins": [
