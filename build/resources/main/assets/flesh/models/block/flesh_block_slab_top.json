@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "top": "flesh:block/flesh_block",
-    "bottom": "flesh:block/flesh_block",
-    "side": "flesh:block/flesh_block"
-  }
-}
