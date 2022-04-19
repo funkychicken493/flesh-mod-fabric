@@ -2,11 +2,14 @@
     "block.flesh.flesh_block": "Flesh Paste Block",
     "tile.flesh.flesh_block": "Flesh Paste Block",
     "item.flesh.flesh_paste": "Flesh Paste",
+    "item.flesh.flesh_brick": "Flesh Brick",
     "item.flesh.flesh_paste.tooltip": "Texture By Catso King",
     "block.flesh.flesh_block_slab": "Flesh Paste Slab",
     "tile.flesh.flesh_block_slab": "Flesh Paste Slab",
     "block.flesh.flesh_block_stairs": "Flesh Paste Stairs",
     "tile.flesh.flesh_block_stairs": "Flesh Paste Stairs",
+    "block.flesh.flesh_brick_block": "Flesh Brick Block",
+    "tile.flesh.flesh_brick_block": "Flesh Brick Block",
 
     "itemGroup.flesh.blocks": "Flesh Blocks",
     "itemGroup.flesh.items": "Flesh Items"

@@ -9,11 +9,14 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
 import java.util.Random;
+import java.util.stream.IntStream;
 
 public class FleshBlockStairs extends StairsBlock implements LandingBlock {
     public FleshBlockStairs() {
@@ -28,7 +31,7 @@ public class FleshBlockStairs extends StairsBlock implements LandingBlock {
                         BlockSoundGroup.HONEY.getFallSound()
                 ))
                 .jumpVelocityMultiplier(0.1f)
-                .velocityMultiplier(1.2f)
+                .velocityMultiplier(1.3f)
                 .slipperiness(0.7f)
                 .breakInstantly()
                 .nonOpaque()

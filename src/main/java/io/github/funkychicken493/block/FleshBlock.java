@@ -17,7 +17,7 @@ public class FleshBlock extends FallingBlock {
                         BlockSoundGroup.HONEY.getFallSound()
                 ))
                 .jumpVelocityMultiplier(0.1f)
-                .velocityMultiplier(1.2f)
+                .velocityMultiplier(1.3f)
                 .slipperiness(0.7f)
                 .breakInstantly()
         );

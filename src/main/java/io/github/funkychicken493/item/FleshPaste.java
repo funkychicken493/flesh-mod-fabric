@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -22,9 +23,9 @@ public class FleshPaste extends Item {
                 )
         );
     }
-
+    @SuppressWarnings("unused")
     public TypedActionResult<ItemStack> onUse(World world, PlayerEntity playerEntity, Hand hand) {
-        playerEntity.playSound(SoundEvents.BLOCK_HONEY_BLOCK_BREAK, 1.0F, 1.46F);
+        playerEntity.playSound(SoundEvents.BLOCK_HONEY_BLOCK_BREAK, SoundCategory.MASTER, 2.0F, 1.46F);
         return TypedActionResult.success(playerEntity.getStackInHand(hand));
     }
 }
