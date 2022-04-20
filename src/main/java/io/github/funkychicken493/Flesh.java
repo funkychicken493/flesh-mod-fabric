@@ -1,9 +1,6 @@
 package io.github.funkychicken493;
 
-import io.github.funkychicken493.block.FleshBlock;
-import io.github.funkychicken493.block.FleshBlockSlab;
-import io.github.funkychicken493.block.FleshBlockStairs;
-import io.github.funkychicken493.block.FleshBrickBlock;
+import io.github.funkychicken493.block.*;
 import io.github.funkychicken493.item.FleshBrick;
 import io.github.funkychicken493.item.FleshPaste;
 import net.fabricmc.api.ModInitializer;
@@ -30,11 +27,14 @@ public class Flesh implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
 	//init blocks
-	//todo: add flesh block wall
 	private static final FleshBlock FLESH_BLOCK = new FleshBlock();
 	private static final FleshBlockSlab FLESH_BLOCK_SLAB = new FleshBlockSlab();
 	private static final FleshBlockStairs FLESH_BLOCK_STAIRS = new FleshBlockStairs();
+	private static final FleshBlockWall FLESH_BLOCK_WALL = new FleshBlockWall();
 	private static final FleshBrickBlock FLESH_BRICK_BLOCK = new FleshBrickBlock();
+	private static final FleshBrickBlockSlab FLESH_BRICK_BLOCK_SLAB = new FleshBrickBlockSlab();
+	private static final FleshBrickBlockStairs FLESH_BRICK_BLOCK_STAIRS = new FleshBrickBlockStairs();
+	private static final FleshBrickBlockWall FLESH_BRICK_BLOCK_WALL = new FleshBrickBlockWall();
 
 	//init items
 	private static final FleshPaste FLESH_PASTE = new FleshPaste();
@@ -44,7 +44,11 @@ public class Flesh implements ModInitializer {
 	private static final BlockItem FLESH_BLOCK_ITEM = new BlockItem(FLESH_BLOCK, new FabricItemSettings());
 	private static final BlockItem FLESH_BLOCK_SLAB_ITEM = new BlockItem(FLESH_BLOCK_SLAB, new FabricItemSettings());
 	private static final BlockItem FLESH_BLOCK_STAIRS_ITEM = new BlockItem(FLESH_BLOCK_STAIRS, new FabricItemSettings());
+	private static final BlockItem FLESH_BLOCK_WALL_ITEM = new BlockItem(FLESH_BLOCK_WALL, new FabricItemSettings());
 	private static final BlockItem FLESH_BRICK_BLOCK_ITEM = new BlockItem(FLESH_BRICK_BLOCK, new FabricItemSettings());
+	private static final BlockItem FLESH_BRICK_BLOCK_SLAB_ITEM = new BlockItem(FLESH_BRICK_BLOCK_SLAB, new FabricItemSettings());
+	private static final BlockItem FLESH_BRICK_BLOCK_STAIRS_ITEM = new BlockItem(FLESH_BRICK_BLOCK_STAIRS, new FabricItemSettings());
+	private static final BlockItem FLESH_BRICK_BLOCK_WALL_ITEM = new BlockItem(FLESH_BRICK_BLOCK_WALL, new FabricItemSettings());
 
 	//init itemgroup items
 	@SuppressWarnings("unused")
@@ -66,7 +70,11 @@ public class Flesh implements ModInitializer {
 				stacks.add(new ItemStack(FLESH_BLOCK_ITEM));
 				stacks.add(new ItemStack(FLESH_BLOCK_SLAB_ITEM));
 				stacks.add(new ItemStack(FLESH_BLOCK_STAIRS_ITEM));
+				stacks.add(new ItemStack(FLESH_BLOCK_WALL_ITEM));
 				stacks.add(new ItemStack(FLESH_BRICK_BLOCK_ITEM));
+				stacks.add(new ItemStack(FLESH_BRICK_BLOCK_SLAB_ITEM));
+				stacks.add(new ItemStack(FLESH_BRICK_BLOCK_STAIRS_ITEM));
+				stacks.add(new ItemStack(FLESH_BRICK_BLOCK_WALL_ITEM));
 			})
 			.build();
 
@@ -85,8 +93,16 @@ public class Flesh implements ModInitializer {
 			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_block_slab"), FLESH_BLOCK_SLAB_ITEM);
 			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_block_stairs"), FLESH_BLOCK_STAIRS);
 			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_block_stairs"), FLESH_BLOCK_STAIRS_ITEM);
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_block_wall"), FLESH_BLOCK_WALL);
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_block_wall"), FLESH_BLOCK_WALL_ITEM);
 			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_brick_block"), FLESH_BRICK_BLOCK);
 			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_brick_block"), FLESH_BRICK_BLOCK_ITEM);
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_brick_slab"), FLESH_BRICK_BLOCK_SLAB);
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_brick_slab"), FLESH_BRICK_BLOCK_SLAB_ITEM);
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_brick_stairs"), FLESH_BRICK_BLOCK_STAIRS);
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_brick_stairs"), FLESH_BRICK_BLOCK_STAIRS_ITEM);
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_brick_wall"), FLESH_BRICK_BLOCK_WALL);
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_brick_wall"), FLESH_BRICK_BLOCK_WALL_ITEM);
 		} catch (Exception e) {
 			LOGGER.error("Failed to register blocks!");
 			LOGGER.error(e.getMessage());

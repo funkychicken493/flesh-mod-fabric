@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "flesh:flesh_paste"
+    },
+    {
+      "item": "minecraft:brick"
+    }
+  ],
+  "result": {
+    "item": "flesh:flesh_brick",
+    "count": 1
+  }
+}

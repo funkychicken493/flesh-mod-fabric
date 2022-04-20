@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "flesh:flesh_paste"
+    },
+    {
+      "item": "flesh:flesh_paste"
+    },
+    {
+      "item": "flesh:flesh_paste"
+    },
+    {
+      "item": "flesh:flesh_paste"
+    },
+    {
+      "item": "flesh:flesh_paste"
+    },
+    {
+      "item": "flesh:flesh_paste"
+    },
+    {
+      "item": "flesh:flesh_paste"
+    },
+    {
+      "item": "flesh:flesh_paste"
+    },
+    {
+      "item": "flesh:flesh_paste"
+    }
+  ],
+  "result": {
+    "item": "flesh:flesh_block",
+    "count": 1
+  }
+}

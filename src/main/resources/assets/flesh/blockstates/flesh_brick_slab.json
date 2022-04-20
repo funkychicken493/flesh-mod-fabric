@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "flesh:block/flesh_brick_slab"
+    },
+    "type=double": {
+      "model": "flesh:block/flesh_brick_block"
+    },
+    "type=top": {
+      "model": "flesh:block/flesh_brick_slab_top"
+    }
+  }
+}
