@@ -1,12 +1,14 @@
 package io.github.funkychicken493.block;
 
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.LandingBlock;
+import net.minecraft.block.Material;
+import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -16,24 +18,12 @@ import net.minecraft.world.WorldAccess;
 
 import java.util.Random;
 
+import static io.github.funkychicken493.base.block.FleshBlockBase.FLESH_BLOCK_BASE;
+
+@SuppressWarnings("unused")
 public class FleshBlockSlab extends SlabBlock implements LandingBlock {
     public FleshBlockSlab() {
-        super(Settings.of(Material.STONE)
-                .sounds(new BlockSoundGroup(
-                        0.5f,
-                        0.7f,
-                        BlockSoundGroup.HONEY.getBreakSound(),
-                        BlockSoundGroup.SLIME.getStepSound(),
-                        BlockSoundGroup.HONEY.getPlaceSound(),
-                        BlockSoundGroup.HONEY.getHitSound(),
-                        BlockSoundGroup.HONEY.getFallSound()
-                ))
-                .jumpVelocityMultiplier(0.1f)
-                .velocityMultiplier(1.3f)
-                .slipperiness(0.7f)
-                .breakInstantly()
-                .nonOpaque()
-        );
+        super(FLESH_BLOCK_BASE.nonOpaque());
     }
 
     @Override

@@ -5,37 +5,21 @@ import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
 import java.util.Random;
-import java.util.stream.IntStream;
 
+import static io.github.funkychicken493.base.block.FleshBlockBase.FLESH_BLOCK_BASE;
+
+@SuppressWarnings("unused")
 public class FleshBlockStairs extends StairsBlock implements LandingBlock {
     public FleshBlockStairs() {
-        super(Blocks.COBBLESTONE_STAIRS.getDefaultState(), Settings.of(Material.STONE)
-                .sounds(new BlockSoundGroup(
-                        0.5f,
-                        0.7f,
-                        BlockSoundGroup.HONEY.getBreakSound(),
-                        BlockSoundGroup.SLIME.getStepSound(),
-                        BlockSoundGroup.HONEY.getPlaceSound(),
-                        BlockSoundGroup.HONEY.getHitSound(),
-                        BlockSoundGroup.HONEY.getFallSound()
-                ))
-                .jumpVelocityMultiplier(0.1f)
-                .velocityMultiplier(1.3f)
-                .slipperiness(0.7f)
-                .breakInstantly()
-                .nonOpaque()
-        );
+        super(Blocks.COBBLESTONE_STAIRS.getDefaultState(), FLESH_BLOCK_BASE.nonOpaque());
     }
 
     @Override

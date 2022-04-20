@@ -1,0 +1,22 @@
+package io.github.funkychicken493.base.block;
+
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Material;
+import net.minecraft.sound.BlockSoundGroup;
+
+public class FleshBlockBase  {
+    public static FabricBlockSettings FLESH_BLOCK_BASE = FabricBlockSettings.of(Material.STONE)
+            .sounds(new BlockSoundGroup(
+                        0.5f,
+                        0.7f,
+                    BlockSoundGroup.HONEY.getBreakSound(),
+                    BlockSoundGroup.SLIME.getStepSound(),
+                    BlockSoundGroup.HONEY.getPlaceSound(),
+                    BlockSoundGroup.HONEY.getHitSound(),
+                    BlockSoundGroup.HONEY.getFallSound()
+            ))
+                .jumpVelocityMultiplier(0.1f)
+                .velocityMultiplier(1.3f)
+                .slipperiness(0.7f)
+                .breakInstantly();
+}

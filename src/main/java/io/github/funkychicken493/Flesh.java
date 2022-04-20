@@ -1,7 +1,11 @@
 package io.github.funkychicken493;
 
-import io.github.funkychicken493.block.*;
-import io.github.funkychicken493.item.*;
+import io.github.funkychicken493.block.FleshBlock;
+import io.github.funkychicken493.block.FleshBlockSlab;
+import io.github.funkychicken493.block.FleshBlockStairs;
+import io.github.funkychicken493.block.FleshBrickBlock;
+import io.github.funkychicken493.item.FleshBrick;
+import io.github.funkychicken493.item.FleshPaste;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -14,6 +18,7 @@ import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@SuppressWarnings("unused")
 public class Flesh implements ModInitializer {
 	//init mod information
 	public static final String MOD_ID = "flesh";
