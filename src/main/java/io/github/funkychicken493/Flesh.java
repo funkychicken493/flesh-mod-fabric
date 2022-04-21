@@ -28,6 +28,7 @@ public class Flesh implements ModInitializer {
 
 	//init blocks
 	private static final FleshBlock FLESH_BLOCK = new FleshBlock();
+	private static final FleshBlockLantern FLESH_LANTERN = new FleshBlockLantern();
 	private static final FleshBlockSlab FLESH_BLOCK_SLAB = new FleshBlockSlab();
 	private static final FleshBlockStairs FLESH_BLOCK_STAIRS = new FleshBlockStairs();
 	private static final FleshBlockWall FLESH_BLOCK_WALL = new FleshBlockWall();
@@ -42,6 +43,7 @@ public class Flesh implements ModInitializer {
 
 	//init items for the blocks
 	private static final BlockItem FLESH_BLOCK_ITEM = new BlockItem(FLESH_BLOCK, new FabricItemSettings());
+	private static final BlockItem FLESH_LANTERN_ITEM = new BlockItem(FLESH_LANTERN, new FabricItemSettings());
 	private static final BlockItem FLESH_BLOCK_SLAB_ITEM = new BlockItem(FLESH_BLOCK_SLAB, new FabricItemSettings());
 	private static final BlockItem FLESH_BLOCK_STAIRS_ITEM = new BlockItem(FLESH_BLOCK_STAIRS, new FabricItemSettings());
 	private static final BlockItem FLESH_BLOCK_WALL_ITEM = new BlockItem(FLESH_BLOCK_WALL, new FabricItemSettings());
@@ -68,6 +70,7 @@ public class Flesh implements ModInitializer {
 			.icon(() -> new ItemStack(FLESH_BLOCK_ITEM))
 			.appendItems(stacks -> {
 				stacks.add(new ItemStack(FLESH_BLOCK_ITEM));
+				stacks.add(new ItemStack(FLESH_LANTERN_ITEM));
 				stacks.add(new ItemStack(FLESH_BLOCK_SLAB_ITEM));
 				stacks.add(new ItemStack(FLESH_BLOCK_STAIRS_ITEM));
 				stacks.add(new ItemStack(FLESH_BLOCK_WALL_ITEM));
@@ -89,6 +92,8 @@ public class Flesh implements ModInitializer {
 		try {
 			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_block"), FLESH_BLOCK);
 			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_block"), FLESH_BLOCK_ITEM);
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_lantern"), FLESH_LANTERN);
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_lantern"), FLESH_LANTERN_ITEM);
 			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_block_slab"), FLESH_BLOCK_SLAB);
 			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_block_slab"), FLESH_BLOCK_SLAB_ITEM);
 			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_block_stairs"), FLESH_BLOCK_STAIRS);

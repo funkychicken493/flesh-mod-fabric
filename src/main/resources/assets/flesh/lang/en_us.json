@@ -1,6 +1,8 @@
 {
     "block.flesh.flesh_block": "Flesh Paste Block",
     "tile.flesh.flesh_block": "Flesh Paste Block",
+    "block.flesh.flesh_lantern": "Flesh Lantern",
+    "tile.flesh.flesh_lantern": "Flesh Lantern",
     "item.flesh.flesh_paste": "Flesh Paste",
     "item.flesh.flesh_brick": "Flesh Brick",
     "item.flesh.flesh_paste.tooltip": "Texture By Catso King",
