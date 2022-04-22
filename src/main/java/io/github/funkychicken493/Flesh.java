@@ -6,14 +6,20 @@ import io.github.funkychicken493.item.FleshPaste;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.client.MinecraftClient;
+import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
+import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static io.github.funkychicken493.util.FleshPasteDrops.getFleshPasteDrops;
 
 @SuppressWarnings("unused")
 public class Flesh implements ModInitializer {
@@ -27,30 +33,30 @@ public class Flesh implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
 	//init blocks
-	private static final FleshBlock FLESH_BLOCK = new FleshBlock();
-	private static final FleshBlockLantern FLESH_LANTERN = new FleshBlockLantern();
-	private static final FleshBlockSlab FLESH_BLOCK_SLAB = new FleshBlockSlab();
-	private static final FleshBlockStairs FLESH_BLOCK_STAIRS = new FleshBlockStairs();
-	private static final FleshBlockWall FLESH_BLOCK_WALL = new FleshBlockWall();
-	private static final FleshBrickBlock FLESH_BRICK_BLOCK = new FleshBrickBlock();
-	private static final FleshBrickBlockSlab FLESH_BRICK_BLOCK_SLAB = new FleshBrickBlockSlab();
-	private static final FleshBrickBlockStairs FLESH_BRICK_BLOCK_STAIRS = new FleshBrickBlockStairs();
-	private static final FleshBrickBlockWall FLESH_BRICK_BLOCK_WALL = new FleshBrickBlockWall();
+	public static final FleshBlock FLESH_BLOCK = new FleshBlock();
+	public static final FleshBlockLantern FLESH_LANTERN = new FleshBlockLantern();
+	public static final FleshBlockSlab FLESH_BLOCK_SLAB = new FleshBlockSlab();
+	public static final FleshBlockStairs FLESH_BLOCK_STAIRS = new FleshBlockStairs();
+	public static final FleshBlockWall FLESH_BLOCK_WALL = new FleshBlockWall();
+	public static final FleshBrickBlock FLESH_BRICK_BLOCK = new FleshBrickBlock();
+	public static final FleshBrickBlockSlab FLESH_BRICK_BLOCK_SLAB = new FleshBrickBlockSlab();
+	public static final FleshBrickBlockStairs FLESH_BRICK_BLOCK_STAIRS = new FleshBrickBlockStairs();
+	public static final FleshBrickBlockWall FLESH_BRICK_BLOCK_WALL = new FleshBrickBlockWall();
 
 	//init items
-	private static final FleshPaste FLESH_PASTE = new FleshPaste();
-	private static final FleshBrick FLESH_BRICK = new FleshBrick();
+	public static final FleshPaste FLESH_PASTE = new FleshPaste();
+	public static final FleshBrick FLESH_BRICK = new FleshBrick();
 
 	//init items for the blocks
-	private static final BlockItem FLESH_BLOCK_ITEM = new BlockItem(FLESH_BLOCK, new FabricItemSettings());
-	private static final BlockItem FLESH_LANTERN_ITEM = new BlockItem(FLESH_LANTERN, new FabricItemSettings());
-	private static final BlockItem FLESH_BLOCK_SLAB_ITEM = new BlockItem(FLESH_BLOCK_SLAB, new FabricItemSettings());
-	private static final BlockItem FLESH_BLOCK_STAIRS_ITEM = new BlockItem(FLESH_BLOCK_STAIRS, new FabricItemSettings());
-	private static final BlockItem FLESH_BLOCK_WALL_ITEM = new BlockItem(FLESH_BLOCK_WALL, new FabricItemSettings());
-	private static final BlockItem FLESH_BRICK_BLOCK_ITEM = new BlockItem(FLESH_BRICK_BLOCK, new FabricItemSettings());
-	private static final BlockItem FLESH_BRICK_BLOCK_SLAB_ITEM = new BlockItem(FLESH_BRICK_BLOCK_SLAB, new FabricItemSettings());
-	private static final BlockItem FLESH_BRICK_BLOCK_STAIRS_ITEM = new BlockItem(FLESH_BRICK_BLOCK_STAIRS, new FabricItemSettings());
-	private static final BlockItem FLESH_BRICK_BLOCK_WALL_ITEM = new BlockItem(FLESH_BRICK_BLOCK_WALL, new FabricItemSettings());
+	public static final BlockItem FLESH_BLOCK_ITEM = new BlockItem(FLESH_BLOCK, new FabricItemSettings());
+	public static final BlockItem FLESH_LANTERN_ITEM = new BlockItem(FLESH_LANTERN, new FabricItemSettings());
+	public static final BlockItem FLESH_BLOCK_SLAB_ITEM = new BlockItem(FLESH_BLOCK_SLAB, new FabricItemSettings());
+	public static final BlockItem FLESH_BLOCK_STAIRS_ITEM = new BlockItem(FLESH_BLOCK_STAIRS, new FabricItemSettings());
+	public static final BlockItem FLESH_BLOCK_WALL_ITEM = new BlockItem(FLESH_BLOCK_WALL, new FabricItemSettings());
+	public static final BlockItem FLESH_BRICK_BLOCK_ITEM = new BlockItem(FLESH_BRICK_BLOCK, new FabricItemSettings());
+	public static final BlockItem FLESH_BRICK_BLOCK_SLAB_ITEM = new BlockItem(FLESH_BRICK_BLOCK_SLAB, new FabricItemSettings());
+	public static final BlockItem FLESH_BRICK_BLOCK_STAIRS_ITEM = new BlockItem(FLESH_BRICK_BLOCK_STAIRS, new FabricItemSettings());
+	public static final BlockItem FLESH_BRICK_BLOCK_WALL_ITEM = new BlockItem(FLESH_BRICK_BLOCK_WALL, new FabricItemSettings());
 
 	//init itemgroup items
 	@SuppressWarnings("unused")
@@ -122,8 +128,19 @@ public class Flesh implements ModInitializer {
 			LOGGER.error(e.getMessage());
 		}
 
-		LOGGER.info("Minecraft Mod-loader: " + MinecraftClient.getInstance().getGameVersion());
-		LOGGER.info("Minecraft Version: " + MinecraftClient.getInstance().getName());
+		LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
+			for (Identifier identifier : getFleshPasteDrops()) {
+				if (identifier.equals(id)) {
+					FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+							.rolls(ConstantLootNumberProvider.create(3))
+							.with(ItemEntry.builder(FLESH_PASTE).weight(10))
+							.with(ItemEntry.builder(Blocks.AIR.asItem()).weight(50))
+							.with(ItemEntry.builder(FLESH_BLOCK_ITEM).weight(3));
+					table.pool(poolBuilder);
+				}
+			}
+		});
+
 		LOGGER.info("Flesh Mod Version: " + MOD_VERSION);
 		LOGGER.info("Flesh Mod Author: " + MOD_AUTHOR);
 		LOGGER.info("Flesh Mod Initialized.");
