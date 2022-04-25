@@ -23,7 +23,7 @@ import static io.github.funkychicken493.base.block.FleshBlockBase.FLESH_BLOCK_BA
 @SuppressWarnings("unused")
 public class FleshBlockSlab extends SlabBlock implements LandingBlock {
     public FleshBlockSlab() {
-        super(FLESH_BLOCK_BASE.nonOpaque());
+        super(FLESH_BLOCK_BASE);
     }
 
     @Override

@@ -19,7 +19,7 @@ import static io.github.funkychicken493.base.block.FleshBlockBase.FLESH_BLOCK_BA
 @SuppressWarnings("unused")
 public class FleshBlockStairs extends StairsBlock implements LandingBlock {
     public FleshBlockStairs() {
-        super(Blocks.COBBLESTONE_STAIRS.getDefaultState(), FLESH_BLOCK_BASE.nonOpaque());
+        super(Blocks.COBBLESTONE_STAIRS.getDefaultState(), FLESH_BLOCK_BASE);
     }
 
     @Override

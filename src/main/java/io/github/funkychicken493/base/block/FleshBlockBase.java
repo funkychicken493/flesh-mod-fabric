@@ -15,8 +15,9 @@ public class FleshBlockBase  {
                     BlockSoundGroup.HONEY.getHitSound(),
                     BlockSoundGroup.HONEY.getFallSound()
             ))
-                .jumpVelocityMultiplier(0.1f)
-                .velocityMultiplier(1.3f)
-                .slipperiness(0.7f)
-                .breakInstantly();
+            .jumpVelocityMultiplier(0.1f)
+            .velocityMultiplier(1.3f)
+            .slipperiness(0.7f)
+            .luminance(0)
+            .breakInstantly();
 }

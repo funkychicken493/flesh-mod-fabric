@@ -135,7 +135,7 @@ public class Flesh implements ModInitializer {
 							.rolls(ConstantLootNumberProvider.create(3))
 							.with(ItemEntry.builder(FLESH_PASTE).weight(10))
 							.with(ItemEntry.builder(Blocks.AIR.asItem()).weight(50))
-							.with(ItemEntry.builder(FLESH_BLOCK_ITEM).weight(3));
+							.with(ItemEntry.builder(FLESH_BLOCK_ITEM).weight(1));
 					table.pool(poolBuilder);
 				}
 			}

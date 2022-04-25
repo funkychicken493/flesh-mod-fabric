@@ -20,5 +20,6 @@ public class FleshBrickBlockBase {
             .slipperiness(0.66f)
             .strength(1.5f)
             .hardness(1.5f)
+            .luminance(0)
             .resistance(1.0f);
 }

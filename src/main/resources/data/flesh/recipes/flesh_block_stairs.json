@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "flesh:flesh_block"
+    }
+  },
+  "result": {
+    "item": "flesh:flesh_block_stairs",
+    "count": 4
+  }
+}

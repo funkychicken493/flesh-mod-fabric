@@ -7,6 +7,6 @@ import static io.github.funkychicken493.base.block.FleshBrickBlockBase.FLESH_BRI
 
 public class FleshBrickBlockStairs extends StairsBlock {
     public FleshBrickBlockStairs() {
-        super(Blocks.COBBLESTONE_STAIRS.getDefaultState(), FLESH_BRICK_BLOCK_BASE.nonOpaque());
+        super(Blocks.COBBLESTONE_STAIRS.getDefaultState(), FLESH_BRICK_BLOCK_BASE);
     }
 }

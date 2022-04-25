@@ -22,7 +22,7 @@ import static io.github.funkychicken493.base.block.FleshBlockBase.FLESH_BLOCK_BA
 @SuppressWarnings({"deprecation", "unused"})
 public class FleshBlockWall extends WallBlock implements LandingBlock {
     public FleshBlockWall() {
-        super(FLESH_BLOCK_BASE.nonOpaque());
+        super(FLESH_BLOCK_BASE);
     }
 
     @Override
