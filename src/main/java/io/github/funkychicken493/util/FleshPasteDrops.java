@@ -5,7 +5,6 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-@SuppressWarnings("unused")
 public class FleshPasteDrops {
     @Contract(" -> new")
     public static Identifier @NotNull [] getFleshPasteDrops(){
