@@ -1,8 +1,6 @@
 package io.github.funkychicken493.block;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.LandingBlock;
-import net.minecraft.block.SlabBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.particle.BlockStateParticleEffect;
@@ -42,10 +40,10 @@ public class FleshBlockSlab extends SlabBlock implements LandingBlock {
     }
 
     @Override
-    @SuppressWarnings({"deprecation", "unused"})
+    @SuppressWarnings("deprecation")
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (canFallThrough(world.getBlockState(pos.down())) && pos.getY() >= world.getBottomY()) {
-            FallingBlockEntity fallingBlockEntity = FallingBlockEntity.spawnFromBlock(world, pos, state);
+            FallingBlockEntity.spawnFromBlock(world, pos, state);
         }
     }
 

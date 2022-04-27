@@ -18,7 +18,7 @@ public class FleshBlockBase  {
             .jumpVelocityMultiplier(0.1f)
             .velocityMultiplier(1.3f)
             .slipperiness(0.7f)
-            .luminance(0)
+            //.luminance(0)
             .emissiveLighting((state, world, pos) -> false)
             .blockVision((state, world, pos) -> true)
             .nonOpaque()
