@@ -1,4 +1,4 @@
-//I honestly don't know what the fuck this is or why it exists.
+//I now understand what this is and why it exists, but it is not used in this project.
 
 package io.github.funkychicken493.mixin;
 

@@ -1,4 +1,4 @@
-package io.github.funkychicken493.block;
+package io.github.funkychicken493.block.FleshBlock;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.FallingBlockEntity;
@@ -14,7 +14,7 @@ import net.minecraft.world.WorldAccess;
 
 import java.util.Random;
 
-import static io.github.funkychicken493.base.block.FleshBlockBase.FLESH_BLOCK_BASE;
+import static io.github.funkychicken493.block.FleshBlock.FleshBlockBase.FLESH_BLOCK_BASE;
 
 @SuppressWarnings("unused")
 public class FleshBlockStairs extends StairsBlock implements LandingBlock {

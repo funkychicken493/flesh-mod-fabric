@@ -3,18 +3,18 @@
   "id": "flesh",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Flesh Mod",
+  "description": "Flesh.",
   "authors": [
-    "Me!"
+    "funkychicken493"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "MIT",
+  "icon": "assets/flesh/textures/item/flesh_paste.png",
 
   "environment": "*",
   "entrypoints": {
@@ -33,6 +33,6 @@
     "java": ">=17"
   },
   "suggests": {
-    "another-mod": "*"
+
   }
 }

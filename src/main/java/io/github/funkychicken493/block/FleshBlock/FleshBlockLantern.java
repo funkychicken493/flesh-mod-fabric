@@ -1,8 +1,8 @@
-package io.github.funkychicken493.block;
+package io.github.funkychicken493.block.FleshBlock;
 
 import net.minecraft.block.FallingBlock;
 
-import static io.github.funkychicken493.base.block.FleshBlockBase.FLESH_BLOCK_BASE;
+import static io.github.funkychicken493.block.FleshBlock.FleshBlockBase.FLESH_BLOCK_BASE;
 
 public class FleshBlockLantern extends FallingBlock {
     public FleshBlockLantern() {
