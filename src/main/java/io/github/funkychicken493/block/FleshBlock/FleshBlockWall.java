@@ -1,5 +1,6 @@
 package io.github.funkychicken493.block.FleshBlock;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LandingBlock;
 import net.minecraft.block.Material;
@@ -21,8 +22,8 @@ import static io.github.funkychicken493.block.FleshBlock.FleshBlockBase.FLESH_BL
 
 @SuppressWarnings({"deprecation", "unused"})
 public class FleshBlockWall extends WallBlock implements LandingBlock {
-    public FleshBlockWall() {
-        super(FLESH_BLOCK_BASE);
+    public FleshBlockWall(FabricBlockSettings settings) {
+        super(settings);
     }
 
     @Override

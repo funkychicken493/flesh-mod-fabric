@@ -6,13 +6,16 @@ import io.github.funkychicken493.block.FleshBrickBlock.FleshBrickBlockSlab;
 import io.github.funkychicken493.block.FleshBrickBlock.FleshBrickBlockStairs;
 import io.github.funkychicken493.block.FleshBrickBlock.FleshBrickBlockWall;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import static io.github.funkychicken493.Flesh.MOD_ID;
-import static io.github.funkychicken493.block.FleshBlock.FleshBlockBase.FLESH_BLOCK_BASE;
 
 public class FleshBlocks {
 
@@ -41,11 +44,96 @@ public class FleshBlocks {
     }
 
     //init blocks
-    public static final Block FLESH_BLOCK = new FleshBlock();
-    public static final Block FLESH_LANTERN = new FleshBlockLantern();
-    public static final Block FLESH_BLOCK_SLAB = new FleshBlockSlab(FLESH_BLOCK_BASE);
-    public static final Block FLESH_BLOCK_STAIRS = new FleshBlockStairs();
-    public static final Block FLESH_BLOCK_WALL = new FleshBlockWall();
+    public static final Block FLESH_BLOCK = new FleshBlock(FabricBlockSettings.of(Material.STONE)
+            .sounds(new BlockSoundGroup(
+                    0.5f,
+                    0.7f,
+                    BlockSoundGroup.HONEY.getBreakSound(),
+                    BlockSoundGroup.SLIME.getStepSound(),
+                    BlockSoundGroup.HONEY.getPlaceSound(),
+                    BlockSoundGroup.HONEY.getHitSound(),
+                    BlockSoundGroup.HONEY.getFallSound()
+            ))
+            .jumpVelocityMultiplier(0.1f)
+            .velocityMultiplier(1.3f)
+            .slipperiness(0.7f)
+            .luminance(0)
+            .emissiveLighting((state, world, pos) -> false)
+            .blockVision((state, world, pos) -> true)
+            .nonOpaque()
+            .breakInstantly());
+    public static final Block FLESH_LANTERN = new FleshBlockLantern(FabricBlockSettings.of(Material.STONE)
+            .sounds(new BlockSoundGroup(
+                    0.5f,
+                    0.7f,
+                    BlockSoundGroup.HONEY.getBreakSound(),
+                    BlockSoundGroup.SLIME.getStepSound(),
+                    BlockSoundGroup.HONEY.getPlaceSound(),
+                    BlockSoundGroup.HONEY.getHitSound(),
+                    BlockSoundGroup.HONEY.getFallSound()
+            ))
+            .jumpVelocityMultiplier(0.1f)
+            .velocityMultiplier(1.3f)
+            .slipperiness(0.7f)
+            .luminance(15)
+            .emissiveLighting((state, world, pos) -> false)
+            .blockVision((state, world, pos) -> true)
+            .nonOpaque()
+            .breakInstantly());
+    public static final Block FLESH_BLOCK_SLAB = new FleshBlockSlab(FabricBlockSettings.of(Material.STONE)
+            .sounds(new BlockSoundGroup(
+                    0.5f,
+                    0.7f,
+                    BlockSoundGroup.HONEY.getBreakSound(),
+                    BlockSoundGroup.SLIME.getStepSound(),
+                    BlockSoundGroup.HONEY.getPlaceSound(),
+                    BlockSoundGroup.HONEY.getHitSound(),
+                    BlockSoundGroup.HONEY.getFallSound()
+            ))
+            .jumpVelocityMultiplier(0.1f)
+            .velocityMultiplier(1.3f)
+            .slipperiness(0.7f)
+            .luminance(0)
+            .emissiveLighting((state, world, pos) -> false)
+            .blockVision((state, world, pos) -> true)
+            .nonOpaque()
+            .breakInstantly());
+    public static final Block FLESH_BLOCK_STAIRS = new FleshBlockStairs(Blocks.COBBLESTONE_STAIRS.getDefaultState(), FabricBlockSettings.of(Material.STONE)
+            .sounds(new BlockSoundGroup(
+                    0.5f,
+                    0.7f,
+                    BlockSoundGroup.HONEY.getBreakSound(),
+                    BlockSoundGroup.SLIME.getStepSound(),
+                    BlockSoundGroup.HONEY.getPlaceSound(),
+                    BlockSoundGroup.HONEY.getHitSound(),
+                    BlockSoundGroup.HONEY.getFallSound()
+            ))
+            .jumpVelocityMultiplier(0.1f)
+            .velocityMultiplier(1.3f)
+            .slipperiness(0.7f)
+            .luminance(0)
+            .emissiveLighting((state, world, pos) -> false)
+            .blockVision((state, world, pos) -> true)
+            .nonOpaque()
+            .breakInstantly());
+    public static final Block FLESH_BLOCK_WALL = new FleshBlockWall(FabricBlockSettings.of(Material.STONE)
+            .sounds(new BlockSoundGroup(
+                    0.5f,
+                    0.7f,
+                    BlockSoundGroup.HONEY.getBreakSound(),
+                    BlockSoundGroup.SLIME.getStepSound(),
+                    BlockSoundGroup.HONEY.getPlaceSound(),
+                    BlockSoundGroup.HONEY.getHitSound(),
+                    BlockSoundGroup.HONEY.getFallSound()
+            ))
+            .jumpVelocityMultiplier(0.1f)
+            .velocityMultiplier(1.3f)
+            .slipperiness(0.7f)
+            .luminance(0)
+            .emissiveLighting((state, world, pos) -> false)
+            .blockVision((state, world, pos) -> true)
+            .nonOpaque()
+            .breakInstantly());
     public static final Block FLESH_BRICK_BLOCK = new FleshBrickBlock();
     public static final Block FLESH_BRICK_BLOCK_SLAB = new FleshBrickBlockSlab();
     public static final Block FLESH_BRICK_BLOCK_STAIRS = new FleshBrickBlockStairs();
