@@ -25,3 +25,11 @@ src/main/java/io/github/.DS_Store
 src/main/java/io/github/funkychicken493/.DS_Store
 src/main/java/io/github/funkychicken493/util/.DS_Store
 src/main/java/io/github/funkychicken493/block/.DS_Store
+*.lock
+*.bin
+
+/build/
+/run/
+/.idea/
+/.gradle/
+run/
