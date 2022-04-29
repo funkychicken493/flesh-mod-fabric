@@ -16,7 +16,7 @@ import static io.github.funkychicken493.init.FleshBlocks.FleshBlocksInit;
 import static io.github.funkychicken493.init.FleshItems.FLESH_PASTE;
 import static io.github.funkychicken493.init.FleshItems.FleshItemsInit;
 import static io.github.funkychicken493.util.FleshUtils.FleshPasteDrops.getFleshPasteDroppers;
-import static io.github.funkychicken493.util.FleshUtils.ItemGroupBuilder.buildItemGroups;
+import static io.github.funkychicken493.init.FleshGroupBuilder.buildItemGroups;
 
 public class Flesh implements ModInitializer {
 	//init mod information

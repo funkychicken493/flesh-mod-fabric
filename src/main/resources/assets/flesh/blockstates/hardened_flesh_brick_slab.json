@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "flesh:block/hardened_flesh_brick_slab"
+    },
+    "type=double": {
+      "model": "flesh:block/hardened_flesh_brick"
+    },
+    "type=top": {
+      "model": "flesh:block/hardened_flesh_brick_slab_top"
+    }
+  }
+}

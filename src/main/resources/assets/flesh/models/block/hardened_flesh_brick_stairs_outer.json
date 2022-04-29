@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "flesh:block/hardened_flesh_brick_block",
+    "top": "flesh:block/hardened_flesh_brick_block",
+    "side": "flesh:block/hardened_flesh_brick_block"
+  }
+}

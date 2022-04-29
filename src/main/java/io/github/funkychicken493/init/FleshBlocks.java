@@ -9,6 +9,10 @@ import io.github.funkychicken493.block.FleshHardenedBlock.FleshHardenedBlock;
 import io.github.funkychicken493.block.FleshHardenedBlock.FleshHardenedBlockSlab;
 import io.github.funkychicken493.block.FleshHardenedBlock.FleshHardenedBlockStairs;
 import io.github.funkychicken493.block.FleshHardenedBlock.FleshHardenedBlockWall;
+import io.github.funkychicken493.block.FleshHardenedBrickBlock.FleshHardenedBrickBlock;
+import io.github.funkychicken493.block.FleshHardenedBrickBlock.FleshHardenedBrickBlockSlab;
+import io.github.funkychicken493.block.FleshHardenedBrickBlock.FleshHardenedBrickBlockStairs;
+import io.github.funkychicken493.block.FleshHardenedBrickBlock.FleshHardenedBrickBlockWall;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -21,6 +25,7 @@ import static io.github.funkychicken493.Flesh.MOD_ID;
 import static io.github.funkychicken493.block.FleshBlock.FleshBlockBase.FLESH_BLOCK_BASE;
 import static io.github.funkychicken493.block.FleshBrickBlock.FleshBrickBlockBase.FLESH_BRICK_BLOCK_BASE;
 import static io.github.funkychicken493.block.FleshHardenedBlock.FleshHardenedBlockBase.FLESH_HARDENED_BLOCK_BASE;
+import static io.github.funkychicken493.block.FleshHardenedBrickBlock.FleshHardenedBrickBlockBase.FLESH_HARDENED_BRICK_BLOCK_BASE;
 
 public class FleshBlocks {
 
@@ -39,6 +44,10 @@ public class FleshBlocks {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "hardened_flesh_slab"), HARDENED_FLESH_BLOCK_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "hardened_flesh_stairs"), HARDENED_FLESH_BLOCK_STAIRS);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "hardened_flesh_wall"), HARDENED_FLESH_BLOCK_WALL);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "hardened_flesh_brick_block"), HARDENED_FLESH_BRICK_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "hardened_flesh_brick_slab"), HARDENED_FLESH_BRICK_BLOCK_SLAB);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "hardened_flesh_brick_stairs"), HARDENED_FLESH_BRICK_BLOCK_STAIRS);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "hardened_flesh_brick_wall"), HARDENED_FLESH_BRICK_BLOCK_WALL);
 
         //Block Items
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_block"), FLESH_BLOCK_ITEM);
@@ -54,6 +63,10 @@ public class FleshBlocks {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hardened_flesh_slab"), HARDENED_FLESH_BLOCK_SLAB_ITEM);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hardened_flesh_stairs"), HARDENED_FLESH_BLOCK_STAIRS_ITEM);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hardened_flesh_wall"), HARDENED_FLESH_BLOCK_WALL_ITEM);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hardened_flesh_brick_block"), HARDENED_FLESH_BRICK_BLOCK_ITEM);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hardened_flesh_brick_slab"), HARDENED_FLESH_BRICK_BLOCK_SLAB_ITEM);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hardened_flesh_brick_stairs"), HARDENED_FLESH_BRICK_BLOCK_STAIRS_ITEM);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "hardened_flesh_brick_wall"), HARDENED_FLESH_BRICK_BLOCK_WALL_ITEM);
     }
 
     //init blocks
@@ -70,6 +83,10 @@ public class FleshBlocks {
     public static final Block HARDENED_FLESH_BLOCK_SLAB = new FleshHardenedBlockSlab(FabricBlockSettings.copyOf(FLESH_HARDENED_BLOCK_BASE));
     public static final Block HARDENED_FLESH_BLOCK_STAIRS = new FleshHardenedBlockStairs(Blocks.COBBLESTONE_STAIRS.getDefaultState(), FabricBlockSettings.copyOf(FLESH_HARDENED_BLOCK_BASE));
     public static final Block HARDENED_FLESH_BLOCK_WALL = new FleshHardenedBlockWall(FabricBlockSettings.copyOf(FLESH_HARDENED_BLOCK_BASE));
+    public static final Block HARDENED_FLESH_BRICK_BLOCK = new FleshHardenedBrickBlock(FabricBlockSettings.copyOf(FLESH_HARDENED_BRICK_BLOCK_BASE));
+    public static final Block HARDENED_FLESH_BRICK_BLOCK_SLAB = new FleshHardenedBrickBlockSlab(FabricBlockSettings.copyOf(FLESH_HARDENED_BRICK_BLOCK_BASE));
+    public static final Block HARDENED_FLESH_BRICK_BLOCK_STAIRS = new FleshHardenedBrickBlockStairs(Blocks.COBBLESTONE_STAIRS.getDefaultState(), FabricBlockSettings.copyOf(FLESH_HARDENED_BRICK_BLOCK_BASE));
+    public static final Block HARDENED_FLESH_BRICK_BLOCK_WALL = new FleshHardenedBrickBlockWall(FabricBlockSettings.copyOf(FLESH_HARDENED_BRICK_BLOCK_BASE));
 
     //init items for the blocks
     public static final BlockItem FLESH_BLOCK_ITEM = new BlockItem(FLESH_BLOCK, new FabricItemSettings());
@@ -85,4 +102,8 @@ public class FleshBlocks {
     public static final BlockItem HARDENED_FLESH_BLOCK_SLAB_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_SLAB, new FabricItemSettings());
     public static final BlockItem HARDENED_FLESH_BLOCK_STAIRS_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_STAIRS, new FabricItemSettings());
     public static final BlockItem HARDENED_FLESH_BLOCK_WALL_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_WALL, new FabricItemSettings());
+    public static final BlockItem HARDENED_FLESH_BRICK_BLOCK_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK, new FabricItemSettings());
+    public static final BlockItem HARDENED_FLESH_BRICK_BLOCK_SLAB_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_SLAB, new FabricItemSettings());
+    public static final BlockItem HARDENED_FLESH_BRICK_BLOCK_STAIRS_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_STAIRS, new FabricItemSettings());
+    public static final BlockItem HARDENED_FLESH_BRICK_BLOCK_WALL_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_WALL, new FabricItemSettings());
 }
