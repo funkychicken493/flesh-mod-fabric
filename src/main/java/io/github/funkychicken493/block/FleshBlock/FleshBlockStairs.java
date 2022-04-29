@@ -1,7 +1,10 @@
 package io.github.funkychicken493.block.FleshBlock;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.LandingBlock;
+import net.minecraft.block.Material;
+import net.minecraft.block.StairsBlock;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
@@ -14,8 +17,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
 import java.util.Random;
-
-import static io.github.funkychicken493.block.FleshBlock.FleshBlockBase.FLESH_BLOCK_BASE;
 
 @SuppressWarnings("unused")
 public class FleshBlockStairs extends StairsBlock implements LandingBlock {

@@ -18,8 +18,6 @@ import net.minecraft.world.WorldAccess;
 
 import java.util.Random;
 
-import static io.github.funkychicken493.block.FleshBlock.FleshBlockBase.FLESH_BLOCK_BASE;
-
 @SuppressWarnings({"deprecation", "unused"})
 public class FleshBlockWall extends WallBlock implements LandingBlock {
     public FleshBlockWall(FabricBlockSettings settings) {

@@ -58,18 +58,23 @@ public class Flesh implements ModInitializer {
 		}
 
 		//Register the loot tables for flesh paste
-		LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
-			for (Identifier identifier : getFleshPasteDroppers()) {
-				if (identifier.equals(id)) {
-					FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-							.rolls(ConstantLootNumberProvider.create(3))
-							.with(ItemEntry.builder(FLESH_PASTE).weight(10))
-							.with(ItemEntry.builder(Blocks.AIR.asItem()).weight(50))
-							.with(ItemEntry.builder(FLESH_BLOCK_ITEM).weight(1));
-					table.pool(poolBuilder);
+		try {
+			LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
+				for (Identifier identifier : getFleshPasteDroppers()) {
+					if (identifier.equals(id)) {
+						FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+								.rolls(ConstantLootNumberProvider.create(3))
+								.with(ItemEntry.builder(FLESH_PASTE).weight(10))
+								.with(ItemEntry.builder(Blocks.AIR.asItem()).weight(50))
+								.with(ItemEntry.builder(FLESH_BLOCK_ITEM).weight(1));
+						table.pool(poolBuilder);
+					}
 				}
-			}
-		});
+			});
+		} catch (Exception e) {
+			//Catch any exceptions and log them
+			LOGGER.error("Failed to register loot tables!\n" + e.getMessage());
+		}
 
 		//Mod initialization is complete, print a message to the console
 		LOGGER.info("Version: " + MOD_VERSION);

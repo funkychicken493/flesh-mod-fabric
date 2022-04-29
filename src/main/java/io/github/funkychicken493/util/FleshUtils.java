@@ -111,6 +111,10 @@ public class FleshUtils {
                     add(new ItemStack(FLESH_BRICK_BLOCK_SLAB_ITEM));
                     add(new ItemStack(FLESH_BRICK_BLOCK_STAIRS_ITEM));
                     add(new ItemStack(FLESH_BRICK_BLOCK_WALL_ITEM));
+                    add(new ItemStack(HARDENED_FLESH_BLOCK_ITEM));
+                    add(new ItemStack(HARDENED_FLESH_BLOCK_SLAB_ITEM));
+                    add(new ItemStack(HARDENED_FLESH_BLOCK_STAIRS_ITEM));
+                    add(new ItemStack(HARDENED_FLESH_BLOCK_WALL_ITEM));
                 }}
         );
 

@@ -14,16 +14,16 @@ import java.util.Random;
 public class FleshBrick extends Item {
     public FleshBrick(){
         super(new FabricItemSettings()
-
         );
     }
-        public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
-            float pitch = new Random().nextFloat() + new Random().nextFloat();
-            if(new Random().nextBoolean()){
-                playerEntity.playSound(SoundEvents.BLOCK_HONEY_BLOCK_BREAK, 2.0F, pitch);
-            }else{
-                playerEntity.playSound(SoundEvents.BLOCK_SLIME_BLOCK_BREAK, 2.0F, pitch);
-            }
-            return TypedActionResult.success(playerEntity.getStackInHand(hand));
+
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
+        float pitch = new Random().nextFloat() + new Random().nextFloat();
+        if(new Random().nextBoolean()){
+            playerEntity.playSound(SoundEvents.BLOCK_HONEY_BLOCK_BREAK, 2.0F, pitch);
+        }else{
+            playerEntity.playSound(SoundEvents.BLOCK_SLIME_BLOCK_BREAK, 2.0F, pitch);
+        }
+        return TypedActionResult.success(playerEntity.getStackInHand(hand));
     }
 }

@@ -56,4 +56,14 @@ public class FleshBlockSlab extends SlabBlock {
             }
         }
     }
+
+    @SuppressWarnings("unused")
+    public void onDestroyedOnLanding(World world, BlockPos pos, FallingBlockEntity fallingBlockEntity) {
+        BlockState state = fallingBlockEntity.getBlockState();
+        BlockState down = world.getBlockState(pos.down());
+        System.out.println(down.getBlock().getTranslationKey());
+        if (world.getBlockState(pos.down()).getBlock() instanceof FleshBlockSlab && down.get(SlabBlock.TYPE) == SlabType.BOTTOM) {
+            world.setBlockState(pos.down(), state.with(SlabBlock.TYPE, SlabType.DOUBLE));
+        }
+    }
 }

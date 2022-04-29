@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "flesh:flesh_block_slab"
+  },
+  "result": "flesh:hardened_flesh_slab",
+  "experience": 0.15,
+  "cookingtime": 200
+}
