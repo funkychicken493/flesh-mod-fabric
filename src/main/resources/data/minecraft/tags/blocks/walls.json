@@ -3,6 +3,7 @@
   "values": [
     "flesh:flesh_block_wall",
     "flesh:flesh_brick_wall",
-    "flesh:hardened_flesh_wall"
+    "flesh:hardened_flesh_wall",
+    "flesh:hardened_flesh_brick_wall"
   ]
 }
