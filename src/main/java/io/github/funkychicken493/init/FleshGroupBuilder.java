@@ -8,8 +8,7 @@ import net.minecraft.util.Identifier;
 import java.util.ArrayList;
 
 import static io.github.funkychicken493.init.FleshBlocks.*;
-import static io.github.funkychicken493.init.FleshItems.FLESH_BRICK;
-import static io.github.funkychicken493.init.FleshItems.FLESH_PASTE;
+import static io.github.funkychicken493.init.FleshItems.*;
 
 public class FleshGroupBuilder {
     //Simple method to build an item group with FabricItemGroupBuilder
@@ -27,6 +26,7 @@ public class FleshGroupBuilder {
             new ArrayList<>() {{
                 add(new ItemStack(FLESH_PASTE));
                 add(new ItemStack(FLESH_BRICK));
+                add(new ItemStack(BONE_MARROW));
             }}
     );
 

@@ -3,8 +3,6 @@
     "tile.flesh.flesh_block": "Flesh Paste Block",
     "block.flesh.flesh_lantern": "Flesh Lantern",
     "tile.flesh.flesh_lantern": "Flesh Lantern",
-    "item.flesh.flesh_paste": "Flesh Paste",
-    "item.flesh.flesh_brick": "Flesh Brick",
     "block.flesh.flesh_block_slab": "Flesh Paste Slab",
     "tile.flesh.flesh_block_slab": "Flesh Paste Slab",
     "block.flesh.flesh_block_stairs": "Flesh Paste Stairs",
@@ -35,6 +33,10 @@
     "tile.flesh.hardened_flesh_brick_stairs": "Hardened Flesh Brick Stairs",
     "block.flesh.hardened_flesh_brick_wall": "Hardened Flesh Brick Wall",
     "tile.flesh.hardened_flesh_brick_wall": "Hardened Flesh Brick Wall",
+
+    "item.flesh.flesh_paste": "Flesh Paste",
+    "item.flesh.flesh_brick": "Flesh Brick",
+    "item.flesh.bone_marrow": "Bone Marrow",
 
     "itemGroup.flesh.blocks": "Flesh Blocks",
     "itemGroup.flesh.items": "Flesh Items",

@@ -1,11 +1,11 @@
 package io.github.funkychicken493.block.FleshBrickBlock;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
 import net.minecraft.sound.BlockSoundGroup;
 
 public class FleshBrickBlockBase {
-    public static FabricBlockSettings FLESH_BRICK_BLOCK_BASE = FabricBlockSettings.copyOf(Blocks.STONE)
+    public static FabricBlockSettings FLESH_BRICK_BLOCK_BASE = FabricBlockSettings.of(Material.STONE)
             .sounds(new BlockSoundGroup(
                     0.5f,
                     0.7f,

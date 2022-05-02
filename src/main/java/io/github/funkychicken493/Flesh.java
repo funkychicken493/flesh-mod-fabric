@@ -3,7 +3,6 @@ package io.github.funkychicken493;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -13,10 +12,11 @@ import org.slf4j.LoggerFactory;
 
 import static io.github.funkychicken493.init.FleshBlocks.FLESH_BLOCK_ITEM;
 import static io.github.funkychicken493.init.FleshBlocks.FleshBlocksInit;
-import static io.github.funkychicken493.init.FleshItems.FLESH_PASTE;
-import static io.github.funkychicken493.init.FleshItems.FleshItemsInit;
-import static io.github.funkychicken493.util.FleshUtils.FleshPasteDrops.getFleshPasteDroppers;
 import static io.github.funkychicken493.init.FleshGroupBuilder.buildItemGroups;
+import static io.github.funkychicken493.init.FleshItems.*;
+import static io.github.funkychicken493.util.FleshUtils.AIR;
+import static io.github.funkychicken493.util.FleshUtils.DropRegistry.boneMarrowDroppers;
+import static io.github.funkychicken493.util.FleshUtils.DropRegistry.fleshPasteDroppers;
 
 public class Flesh implements ModInitializer {
 	//init mod information
@@ -60,16 +60,21 @@ public class Flesh implements ModInitializer {
 		//Register the loot tables for flesh paste
 		try {
 			LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
-				for (Identifier identifier : getFleshPasteDroppers()) {
+				FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+						.rolls(ConstantLootNumberProvider.create(3))
+						.with(ItemEntry.builder(AIR).weight(90));
+				for (Identifier identifier : fleshPasteDroppers()) {
 					if (identifier.equals(id)) {
-						FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
-								.rolls(ConstantLootNumberProvider.create(3))
-								.with(ItemEntry.builder(FLESH_PASTE).weight(10))
-								.with(ItemEntry.builder(Blocks.AIR.asItem()).weight(50))
-								.with(ItemEntry.builder(FLESH_BLOCK_ITEM).weight(1));
-						table.pool(poolBuilder);
+						poolBuilder.with(ItemEntry.builder(FLESH_PASTE).weight(20));
+						poolBuilder.with(ItemEntry.builder(FLESH_BLOCK_ITEM).weight(1));
 					}
 				}
+				for (Identifier identifier : boneMarrowDroppers()) {
+					if(identifier.equals(id)) {
+						poolBuilder.with(ItemEntry.builder(BONE_MARROW).weight(10));
+					}
+				}
+				table.pool(poolBuilder);
 			});
 		} catch (Exception e) {
 			//Catch any exceptions and log them
