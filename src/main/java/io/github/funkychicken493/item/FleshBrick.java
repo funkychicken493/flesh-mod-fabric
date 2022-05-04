@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class FleshBrick extends Item {
-    public FleshBrick(){
-        super(new FabricItemSettings()
-        );
+    public FleshBrick(FabricItemSettings settings) {
+        super(settings);
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {

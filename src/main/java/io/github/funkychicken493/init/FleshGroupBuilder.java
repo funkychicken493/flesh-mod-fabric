@@ -55,7 +55,7 @@ public class FleshGroupBuilder {
     );
 
     //Builds the item groups for the blocks and items and returns them
-    public static ItemGroup[] buildItemGroups() {
+    public static ItemGroup[] BuildItemGroups() {
         return new ItemGroup[]{FLESH_GROUP_ITEMS, FLESH_GROUP_BLOCKS};
     }
 }

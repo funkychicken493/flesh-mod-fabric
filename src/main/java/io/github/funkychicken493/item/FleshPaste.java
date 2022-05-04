@@ -23,10 +23,8 @@ public class FleshPaste extends Item {
     private static final StatusEffectInstance HUNGER = new StatusEffectInstance(StatusEffects.HUNGER, 300, 0);
     private static final StatusEffectInstance NAUSEA = new StatusEffectInstance(StatusEffects.NAUSEA, 600, 2);
     private static final FoodComponent fleshFoodComponent = new FoodComponent.Builder().hunger(2).saturationModifier(0.3F).statusEffect(HUNGER, 0.7f).statusEffect(NAUSEA, 0.2f).meat().build();
-    public FleshPaste() {
-        super((new FabricItemSettings()
-                .food(fleshFoodComponent)
-                )
+    public FleshPaste(FabricItemSettings settings) {
+        super((settings.food(fleshFoodComponent))
         );
     }
     @SuppressWarnings("unused")
