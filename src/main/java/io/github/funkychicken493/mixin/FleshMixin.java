@@ -2,12 +2,16 @@
 
 package io.github.funkychicken493.mixin;
 
-import net.minecraft.entity.Entity;
+import net.minecraft.client.resource.SplashTextResourceSupplier;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(Entity.class)
+@Mixin(SplashTextResourceSupplier.class)
 public class FleshMixin {
-	public FleshMixin() {
 
+	@Inject(method = "get", at = @At(value = "HEAD"))
+	private void inject(CallbackInfoReturnable<String> cir) {
 	}
 }

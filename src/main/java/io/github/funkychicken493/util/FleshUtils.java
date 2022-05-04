@@ -21,7 +21,7 @@ public class FleshUtils {
                                                 String[] droppersExclusionNames,
                                                 Stack<SpawnGroup> droppersInvalidSpawnGroups,
                                                 DefaultedRegistry<EntityType<?>> entityTypes
-                                                ){
+        ){
             Stack<Identifier> result = new Stack<>();
 
             if(droppersInitializer != null){
