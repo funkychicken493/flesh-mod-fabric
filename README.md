@@ -13,6 +13,7 @@ Added features:
 >Items:
 >  - Flesh Paste
 >  - Flesh Brick
+>  - Bone Marrow
 >
 >Blocks:
 >  - Flesh Paste Block
