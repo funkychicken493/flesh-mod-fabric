@@ -17,16 +17,15 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.FallingBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import static io.github.funkychicken493.Flesh.MOD_ID;
-import static io.github.funkychicken493.block.FleshBlock.FleshBlockBase.FLESH_BLOCK_BASE;
-import static io.github.funkychicken493.block.FleshBrickBlock.FleshBrickBlockBase.FLESH_BRICK_BLOCK_BASE;
-import static io.github.funkychicken493.block.FleshHardenedBlock.FleshHardenedBlockBase.FLESH_HARDENED_BLOCK_BASE;
-import static io.github.funkychicken493.block.FleshHardenedBrickBlock.FleshHardenedBrickBlockBase.FLESH_HARDENED_BRICK_BLOCK_BASE;
+import static io.github.funkychicken493.block.base.FleshBlockBase.FLESH_BLOCK_BASE;
+import static io.github.funkychicken493.block.base.FleshBrickBlockBase.FLESH_BRICK_BLOCK_BASE;
+import static io.github.funkychicken493.block.base.FleshHardenedBlockBase.FLESH_HARDENED_BLOCK_BASE;
+import static io.github.funkychicken493.block.base.FleshHardenedBrickBlockBase.FLESH_HARDENED_BRICK_BLOCK_BASE;
 
 public class FleshBlocks {
 

@@ -1,17 +1,24 @@
 package io.github.funkychicken493.init;
 
 import io.github.funkychicken493.Flesh;
+import io.github.funkychicken493.util.lootconditions.BoneMarrowCheckLootCondition;
+import io.github.funkychicken493.util.lootconditions.FleshPasteCheckLootCondition;
+import net.fabricmc.fabric.api.gamerule.v1.FabricGameRuleVisitor;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
+import net.fabricmc.fabric.mixin.gamerule.GameRulesAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntryList;
 import net.minecraft.world.GameRules;
+import org.objectweb.asm.Type;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -28,6 +35,10 @@ import static io.github.funkychicken493.util.FleshUtils.DropRegistry.fleshPasteD
 //Class to initialize everything (items, blocks, etc.)
 //This is where the magic happens
 public class InitializeEverything {
+    public static final GameRules.Key<GameRules.BooleanRule> SHOULD_DROP_BONE_MARROW =
+            GameRuleRegistry.register("mobsDropBoneMarrow", GameRules.Category.DROPS, GameRuleFactory.createBooleanRule(true));
+    public static final GameRules.Key<GameRules.BooleanRule> SHOULD_DROP_FLESH_PASTE =
+            GameRuleRegistry.register("mobsDropFleshPaste", GameRules.Category.DROPS, GameRuleFactory.createBooleanRule(true));
     public static String InitEverything() {
         try {
             //Initialize the blocks
@@ -57,7 +68,12 @@ public class InitializeEverything {
         try {
             //Initialize the loot tables
             LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
-                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                FabricLootPoolBuilder fleshPastePoolBuilder = FabricLootPoolBuilder.builder()
+                        //Loot table will roll 3 times
+                        .rolls(ConstantLootNumberProvider.create(3))
+                        //The default item is AIR item (no item)
+                        .with(ItemEntry.builder(AIR).weight(90));
+                FabricLootPoolBuilder boneMarrowPoolBuilder = FabricLootPoolBuilder.builder()
                         //Loot table will roll 3 times
                         .rolls(ConstantLootNumberProvider.create(3))
                         //The default item is AIR item (no item)
@@ -66,20 +82,23 @@ public class InitializeEverything {
                 for (Identifier identifier : fleshPasteDroppers()) {
                     if (identifier.equals(id)) {
                         //Add the flesh paste item to the loot table
-                        poolBuilder.with(ItemEntry.builder(FLESH_PASTE).weight(30));
+                        fleshPastePoolBuilder.with(ItemEntry.builder(FLESH_PASTE).weight(30));
                         //Add the flesh paste block to the loot table
-                        poolBuilder.with(ItemEntry.builder(FLESH_BLOCK_ITEM).weight(2));
+                        fleshPastePoolBuilder.with(ItemEntry.builder(FLESH_BLOCK_ITEM).weight(2));
+                        fleshPastePoolBuilder.withCondition(new FleshPasteCheckLootCondition());
                     }
                 }
                 //Check if the entity is skeletal
                 for (Identifier identifier : boneMarrowDroppers()) {
                     if(identifier.equals(id)) {
                         //Add the bone marrow item to the loot table
-                        poolBuilder.with(ItemEntry.builder(BONE_MARROW).weight(40));
+                        boneMarrowPoolBuilder.with(ItemEntry.builder(BONE_MARROW).weight(40));
+                        boneMarrowPoolBuilder.withCondition(new BoneMarrowCheckLootCondition());
                     }
                 }
                 //Build the loot table
-                table.pool(poolBuilder);
+                table.pool(fleshPastePoolBuilder);
+                table.pool(boneMarrowPoolBuilder);
             });
         } catch (Exception e) {
             LOGGER.error("FAILURE INITIALIZING LOOT TABLES");
@@ -151,16 +170,6 @@ public class InitializeEverything {
             fw.close();
         } catch (Exception e) {
             LOGGER.error("FAILURE INITIALIZING SPLASHES");
-            throw new RuntimeException(e);
-        }
-
-        try {
-            //Initialize the game rules
-            @SuppressWarnings("unused")
-            final GameRules.Key<GameRules.BooleanRule> SHOULD_DROP_BONE_MARROW =
-                    GameRuleRegistry.register("shouldDropBoneMarrow", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
-        } catch (Exception e) {
-            LOGGER.error("FAILURE INITIALIZING GAME RULES");
             throw new RuntimeException(e);
         }
 

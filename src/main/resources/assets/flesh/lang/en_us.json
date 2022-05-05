@@ -41,5 +41,8 @@
     "itemGroup.flesh.blocks": "Flesh Blocks",
     "itemGroup.flesh.items": "Flesh Items",
 
+    "gamerule.mobsDropBoneMarrow": "Mobs drop bone marrow",
+    "gamerule.mobsDropFleshPaste": "Mobs drop flesh paste",
+
     "item.flesh.flesh_paste.tooltip0": "Texture By Catso King"
 }
