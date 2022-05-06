@@ -33,9 +33,9 @@ public class FleshBlocks {
         //Blocks
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_block"), FLESH_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_lantern"), FLESH_LANTERN);
-        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_block_slab"), FLESH_BLOCK_SLAB);
-        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_block_stairs"), FLESH_BLOCK_STAIRS);
-        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_block_wall"), FLESH_BLOCK_WALL);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_slab"), FLESH_BLOCK_SLAB);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_stairs"), FLESH_BLOCK_STAIRS);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_wall"), FLESH_BLOCK_WALL);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_brick_block"), FLESH_BRICK_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_brick_slab"), FLESH_BRICK_BLOCK_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "flesh_brick_stairs"), FLESH_BRICK_BLOCK_STAIRS);
@@ -52,9 +52,9 @@ public class FleshBlocks {
         //Block Items
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_block"), FLESH_BLOCK_ITEM);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_lantern"), FLESH_LANTERN_ITEM);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_block_slab"), FLESH_BLOCK_SLAB_ITEM);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_block_stairs"), FLESH_BLOCK_STAIRS_ITEM);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_block_wall"), FLESH_BLOCK_WALL_ITEM);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_slab"), FLESH_BLOCK_SLAB_ITEM);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_stairs"), FLESH_BLOCK_STAIRS_ITEM);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_wall"), FLESH_BLOCK_WALL_ITEM);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_brick_block"), FLESH_BRICK_BLOCK_ITEM);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_brick_slab"), FLESH_BRICK_BLOCK_SLAB_ITEM);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "flesh_brick_stairs"), FLESH_BRICK_BLOCK_STAIRS_ITEM);
