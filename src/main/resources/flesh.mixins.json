@@ -1,9 +1,10 @@
 {
   "required": false,
   "minVersion": "0.8",
-  "package": "io.github.funkychicken493.mixin",
+  "package": "io.github.funkychicken493.flesh.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "FleshMixin"
   ],
   "client": [
     "FleshMixin"
