@@ -2,8 +2,6 @@ package io.github.funkychicken493.flesh.util;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.util.Identifier;
@@ -18,7 +16,6 @@ import java.util.Stack;
 //Utility class for Flesh
 public class FleshUtils {
     //Simple constant for an air item
-    public static Item AIR = Items.AIR;
     public static class DropRegistry {
         public static Identifier [] DropFactory(
                 Stack<Identifier> droppersInitializer,

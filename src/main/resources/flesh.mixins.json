@@ -1,13 +1,15 @@
 {
-  "required": false,
+  "required": true,
   "minVersion": "0.8",
   "package": "io.github.funkychicken493.flesh.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "FleshMixin"
+    "FleshMixin",
+    "RegisterCompostableItemInvoker"
   ],
   "client": [
-    "FleshMixin"
+    "FleshMixin",
+    "RegisterCompostableItemInvoker"
   ],
   "injectors": {
     "defaultRequire": 1

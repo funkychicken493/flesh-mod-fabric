@@ -1,10 +1,7 @@
 package io.github.funkychicken493.flesh.block.flesh;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.LandingBlock;
-import net.minecraft.block.Material;
-import net.minecraft.block.StairsBlock;
+import net.minecraft.block.*;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
@@ -20,8 +17,8 @@ import java.util.Random;
 
 @SuppressWarnings("unused")
 public class FleshBlockStairs extends StairsBlock implements LandingBlock {
-    public FleshBlockStairs(BlockState state, FabricBlockSettings settings) {
-        super(state, settings);
+    public FleshBlockStairs(FabricBlockSettings settings) {
+        super(Blocks.COBBLESTONE_STAIRS.getDefaultState(), settings);
     }
 
     @Override

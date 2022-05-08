@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "io.github.funkychicken493.flesh.Flesh"
+    ],
+    "client": [
+      "io.github.funkychicken493.flesh.FleshClient"
     ]
   },
   "mixins": [

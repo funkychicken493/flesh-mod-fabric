@@ -7,13 +7,14 @@ import org.slf4j.LoggerFactory;
 
 public class Flesh implements ModInitializer {
 	//Initialize mod information
+	@SuppressWarnings("unused")
 	public static final class ModInfo{
 		public static final String MOD_ID = "flesh";
 		public static final String MOD_NAME = "Flesh Mod";
 		public static final String MOD_VERSION = "1.0.0";
 		public static final String MOD_AUTHOR = "funkychicken493";
 		//init logger provided by slf4j
-		public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
+		public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	}
 
 	//Override the initialize method to register my stuff
@@ -24,11 +25,7 @@ public class Flesh implements ModInitializer {
 		ModInfo.LOGGER.info("Flesh is flesh. Where there's smoke there's fire.");
 		ModInfo.LOGGER.info("Initializing...");
 
-		try {
-			InitEverything.EverythingInit();
-		} catch (Exception e) {
-			ModInfo.LOGGER.error(String.valueOf(e));
-		}
+		InitEverything.EverythingInit();
 
 		//Mod initialization is complete, print a message to the console
 		ModInfo.LOGGER.info("Version: " + ModInfo.MOD_VERSION);
