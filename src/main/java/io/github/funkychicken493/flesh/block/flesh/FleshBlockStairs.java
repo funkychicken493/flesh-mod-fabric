@@ -1,10 +1,10 @@
-package io.github.funkychicken493.flesh.block.FleshBlock;
+package io.github.funkychicken493.flesh.block.flesh;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LandingBlock;
 import net.minecraft.block.Material;
-import net.minecraft.block.WallBlock;
+import net.minecraft.block.StairsBlock;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.particle.BlockStateParticleEffect;
 import net.minecraft.particle.ParticleTypes;
@@ -18,14 +18,13 @@ import net.minecraft.world.WorldAccess;
 
 import java.util.Random;
 
-@SuppressWarnings({"deprecation", "unused"})
-public class FleshBlockWall extends WallBlock implements LandingBlock {
-    public FleshBlockWall(FabricBlockSettings settings) {
-        super(settings);
+@SuppressWarnings("unused")
+public class FleshBlockStairs extends StairsBlock implements LandingBlock {
+    public FleshBlockStairs(BlockState state, FabricBlockSettings settings) {
+        super(state, settings);
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
         world.createAndScheduleBlockTick(pos, this, this.getFallDelay());
     }
@@ -37,7 +36,6 @@ public class FleshBlockWall extends WallBlock implements LandingBlock {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (canFallThrough(world.getBlockState(pos.down())) && pos.getY() >= world.getBottomY()) {
             FallingBlockEntity fallingBlockEntity = FallingBlockEntity.spawnFromBlock(world, pos, state);

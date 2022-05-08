@@ -24,7 +24,11 @@ public class Flesh implements ModInitializer {
 		ModInfo.LOGGER.info("Flesh is flesh. Where there's smoke there's fire.");
 		ModInfo.LOGGER.info("Initializing...");
 
-		InitEverything.EverythingInit();
+		try {
+			InitEverything.EverythingInit();
+		} catch (Exception e) {
+			ModInfo.LOGGER.error(String.valueOf(e));
+		}
 
 		//Mod initialization is complete, print a message to the console
 		ModInfo.LOGGER.info("Version: " + ModInfo.MOD_VERSION);

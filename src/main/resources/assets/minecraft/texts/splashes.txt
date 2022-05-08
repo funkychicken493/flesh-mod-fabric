@@ -274,12 +274,12 @@ From the streets of Södermalm!
 Technologic!
 Funk soul brother!
 Pumpa kungen!
-日本ハロー！
+日本�?ロー�?
 한국 안녕하세요!
 Helo Cymru!
 Cześć Polsko!
-你好中国！
-Привет Россия!
+你好中国�?
+Привет Ро�?�?и�?!
 Γεια σου Ελλάδα!
 My life for Aiur!
 Lennart lennart = new Lennart();
@@ -451,7 +451,7 @@ Lambs for the metaphorical slaughter!
 You are a fleshy human!
 Flesh is the best!
 Bring me THE FLESH!
-Now featuring: No skin!
+Skinless!
 Meatloaf but replace the meat with flesh!
 Flesh is kind of the same as meat I guess.
 Bone marrow + flesh paste = flesh marrow?

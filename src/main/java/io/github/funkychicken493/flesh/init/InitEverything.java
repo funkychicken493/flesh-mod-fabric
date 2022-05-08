@@ -1,8 +1,8 @@
 package io.github.funkychicken493.flesh.init;
 
 import io.github.funkychicken493.flesh.Flesh;
-import io.github.funkychicken493.flesh.util.lootconditions.FleshPasteCheckLootCondition;
 import io.github.funkychicken493.flesh.util.lootconditions.BoneMarrowCheckLootCondition;
+import io.github.funkychicken493.flesh.util.lootconditions.FleshPasteCheckLootCondition;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
@@ -31,14 +31,13 @@ import static io.github.funkychicken493.flesh.util.FleshUtils.DropRegistry.flesh
 //This is where the magic happens
 public class InitEverything {
     //Put the game rules here for public access
-    public static class FleshGameRules{
-        //Game rule for the flesh paste loot table condition
-        public static final GameRules.Key<GameRules.BooleanRule> SHOULD_DROP_BONE_MARROW =
-                GameRuleRegistry.register("mobsDropBoneMarrow", GameRules.Category.DROPS, GameRuleFactory.createBooleanRule(true));
-        //Game rule for the bone marrow loot table condition
-        public static final GameRules.Key<GameRules.BooleanRule> SHOULD_DROP_FLESH_PASTE =
-                GameRuleRegistry.register("mobsDropFleshPaste", GameRules.Category.DROPS, GameRuleFactory.createBooleanRule(true));
-    }
+
+    //Game rule for the flesh paste loot table condition
+    public static final GameRules.Key<GameRules.BooleanRule> SHOULD_DROP_BONE_MARROW =
+            GameRuleRegistry.register("mobsDropBoneMarrow", GameRules.Category.DROPS, GameRuleFactory.createBooleanRule(true));
+    //Game rule for the bone marrow loot table condition
+    public static final GameRules.Key<GameRules.BooleanRule> SHOULD_DROP_FLESH_PASTE =
+            GameRuleRegistry.register("mobsDropFleshPaste", GameRules.Category.DROPS, GameRuleFactory.createBooleanRule(true));
 
     public static void EverythingInit() {
         try {
@@ -110,7 +109,12 @@ public class InitEverything {
             //Initialize the splashes
             //
             //Get the system file separator
-            String s = File.separator;
+            String s;
+            if(System.getProperty("os.name").contains("Windows")) {
+                s = "/";
+            }else{
+                s = File.separator;
+            }
             //Get vanilla splashes
             String splashes = new String(MinecraftClient.getInstance().getResourcePackProvider().getPack().open(ResourceType.CLIENT_RESOURCES, new Identifier("texts/splashes.txt")).readAllBytes());
             //Find where the mod is at the moment
@@ -173,7 +177,5 @@ public class InitEverything {
             LOGGER.error("FAILURE INITIALIZING SPLASHES");
             throw new RuntimeException(e);
         }
-
-        //Hooray!
     }
 }

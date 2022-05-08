@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "item": "flesh:flesh_paste"
+    },
+    "title": {
+      "translate": "advancements.flesh.main.title"
+    },
+    "description": {
+      "translate": "advancements.flesh.main.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "flesh:textures/block/flesh_block.png"
+  },
+  "criteria": {
+    "flesh_paste_acquired": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "flesh:flesh_paste"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "flesh_paste_acquired"
+    ]
+  ]
+}

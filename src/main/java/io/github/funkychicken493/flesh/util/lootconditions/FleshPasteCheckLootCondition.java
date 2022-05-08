@@ -10,7 +10,7 @@ import net.minecraft.loot.context.LootContext;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.JsonSerializer;
 
-import static io.github.funkychicken493.flesh.init.InitEverything.FleshGameRules.SHOULD_DROP_FLESH_PASTE;
+import static io.github.funkychicken493.flesh.init.InitEverything.SHOULD_DROP_FLESH_PASTE;
 import static io.github.funkychicken493.flesh.util.FleshUtils.lootContextHasGamerule;
 
 public record FleshPasteCheckLootCondition() implements LootCondition {

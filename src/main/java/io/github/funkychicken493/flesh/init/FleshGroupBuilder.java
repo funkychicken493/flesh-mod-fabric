@@ -39,6 +39,8 @@ public class FleshGroupBuilder {
                 add(new ItemStack(FLESH_BLOCK_SLAB_ITEM));
                 add(new ItemStack(FLESH_BLOCK_STAIRS_ITEM));
                 add(new ItemStack(FLESH_BLOCK_WALL_ITEM));
+                add(new ItemStack(FLESH_BLOCK_FENCE_ITEM));
+                add(new ItemStack(FLESH_BLOCK_FENCE_GATE_ITEM));
                 add(new ItemStack(FLESH_LANTERN_ITEM));
                 add(new ItemStack(FLESH_BRICK_BLOCK_ITEM));
                 add(new ItemStack(FLESH_BRICK_BLOCK_SLAB_ITEM));

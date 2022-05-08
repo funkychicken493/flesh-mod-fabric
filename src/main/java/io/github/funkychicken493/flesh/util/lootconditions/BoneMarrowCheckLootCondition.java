@@ -24,7 +24,7 @@ public record BoneMarrowCheckLootCondition() implements LootCondition {
     //Implementation method:
     //Tests the LootCondition
     public boolean test(LootContext lootContext) {
-        return lootContextHasGamerule(lootContext, InitEverything.FleshGameRules.SHOULD_DROP_BONE_MARROW);
+        return lootContextHasGamerule(lootContext, InitEverything.SHOULD_DROP_BONE_MARROW);
     }
 
     //Implementation method:

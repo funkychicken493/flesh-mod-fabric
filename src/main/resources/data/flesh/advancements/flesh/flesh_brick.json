@@ -1,0 +1,37 @@
+{
+  "parent": "flesh:flesh/main",
+  "display": {
+    "icon": {
+      "item": "flesh:flesh_brick"
+    },
+    "title": {
+      "translate": "advancements.flesh.flesh_brick.title"
+    },
+    "description": {
+      "translate": "advancements.flesh.flesh_brick.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "flesh_brick_acquired": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "flesh:flesh_brick"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "flesh_brick_acquired"
+    ]
+  ]
+}
