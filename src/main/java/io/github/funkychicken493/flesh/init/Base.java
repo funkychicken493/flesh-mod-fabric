@@ -1,10 +1,17 @@
-package io.github.funkychicken493.flesh.block;
+package io.github.funkychicken493.flesh.init;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Material;
 import net.minecraft.sound.BlockSoundGroup;
 
+import static io.github.funkychicken493.flesh.init.InitEverything.FLESH_GROUP_BLOCKS;
+import static io.github.funkychicken493.flesh.init.InitEverything.FLESH_GROUP_ITEMS;
+
 public class Base {
+
+    public static final FabricItemSettings ITEM_BASE = new FabricItemSettings().group(FLESH_GROUP_ITEMS);
+    public static final FabricItemSettings BLOCK_ITEM_BASE = new FabricItemSettings().group(FLESH_GROUP_BLOCKS);
 
     public static final FabricBlockSettings FLESH_BLOCK_BASE = FabricBlockSettings.of(Material.STONE)
             .sounds(new BlockSoundGroup(
@@ -24,6 +31,7 @@ public class Base {
             .blockVision((state, world, pos) -> true)
             .nonOpaque()
             .breakInstantly();
+
 
     public static FabricBlockSettings FLESH_BRICK_BLOCK_BASE = FabricBlockSettings.of(Material.STONE)
             .sounds(new BlockSoundGroup(

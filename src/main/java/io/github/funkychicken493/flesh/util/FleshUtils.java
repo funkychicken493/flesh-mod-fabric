@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.context.LootContextParameters;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.DefaultedRegistry;
 import net.minecraft.util.registry.Registry;
@@ -15,7 +16,8 @@ import java.util.Stack;
 
 //Utility class for Flesh
 public class FleshUtils {
-    //Simple constant for an air item
+    public static final TagKey<EntityType<?>> NOT_FLESHY = TagKey.of(Registry.ENTITY_TYPE_KEY, new Identifier("flesh", "not_fleshy"));
+    public static final TagKey<EntityType<?>> NOT_BONY = TagKey.of(Registry.ENTITY_TYPE_KEY, new Identifier("flesh", "not_bony"));
     public static class DropRegistry {
         public static Identifier [] DropFactory(
                 Stack<Identifier> droppersInitializer,
