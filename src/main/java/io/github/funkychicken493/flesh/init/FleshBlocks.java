@@ -1,7 +1,6 @@
 package io.github.funkychicken493.flesh.init;
 
 import io.github.funkychicken493.flesh.block.flesh.*;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
@@ -11,7 +10,6 @@ import net.minecraft.util.registry.Registry;
 
 import static io.github.funkychicken493.flesh.Flesh.ModInfo.MOD_ID;
 import static io.github.funkychicken493.flesh.init.Base.BLOCK_ITEM_BASE;
-import static io.github.funkychicken493.flesh.init.InitEverything.FLESH_GROUP_BLOCKS;
 
 public class FleshBlocks {
     public static void FleshBlocksInit() {

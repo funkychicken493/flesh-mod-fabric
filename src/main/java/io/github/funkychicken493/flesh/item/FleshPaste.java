@@ -35,7 +35,6 @@ public class FleshPaste extends Item {
 
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        // formatted red text
         tooltip.add( new TranslatableText("item.flesh.flesh_paste.tooltip0").formatted(Formatting.GRAY) );
     }
 }
