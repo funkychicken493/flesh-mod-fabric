@@ -2,6 +2,8 @@ package io.github.funkychicken493.flesh.block.flesh;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.LandingBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.FallingBlockEntity;
@@ -17,7 +19,7 @@ import java.util.Random;
 
 import static net.minecraft.block.FallingBlock.canFallThrough;
 
-public class FleshBlockSlab extends SlabBlock {
+public class FleshBlockSlab extends SlabBlock implements LandingBlock {
     public FleshBlockSlab(FabricBlockSettings settings) {
         super(settings);
     }
@@ -30,6 +32,15 @@ public class FleshBlockSlab extends SlabBlock {
         //Check if the block is placed in top version, if so, set the state to bottom version
         if(state.get(SlabBlock.TYPE) == SlabType.TOP) {
             world.setBlockState(pos, state.with(SlabBlock.TYPE, SlabType.BOTTOM));
+        }
+        if(world.getBlockState(pos.down()).getBlock() == this && world.getBlockState(pos.down()).get(SlabBlock.TYPE) == SlabType.BOTTOM) {
+            world.setBlockState(pos.down(), state.with(SlabBlock.TYPE, SlabType.DOUBLE));
+            if(world.getBlockState(pos).get(SlabBlock.WATERLOGGED)){
+                world.removeBlock(pos, false);
+                world.setBlockState(pos, Blocks.WATER.getDefaultState());
+            }else{
+                world.removeBlock(pos, false);
+            }
         }
     }
 
@@ -57,13 +68,13 @@ public class FleshBlockSlab extends SlabBlock {
         }
     }
 
+    @Override
     @SuppressWarnings("unused")
     public void onDestroyedOnLanding(World world, BlockPos pos, FallingBlockEntity fallingBlockEntity) {
         BlockState state = fallingBlockEntity.getBlockState();
-        BlockState down = world.getBlockState(pos.down());
-        System.out.println(down.getBlock().getTranslationKey());
-        if (world.getBlockState(pos.down()).getBlock() instanceof FleshBlockSlab && down.get(SlabBlock.TYPE) == SlabType.BOTTOM) {
-            world.setBlockState(pos.down(), state.with(SlabBlock.TYPE, SlabType.DOUBLE));
+        if (world.getBlockState(pos).getBlock() instanceof FleshBlockSlab && world.getBlockState(pos).get(SlabBlock.TYPE) == SlabType.BOTTOM) {
+            fallingBlockEntity.setPos(pos.getX(), pos.getY() - 10000, pos.getZ());
+            world.setBlockState(pos, state.with(SlabBlock.TYPE, SlabType.DOUBLE));
         }
     }
 }
