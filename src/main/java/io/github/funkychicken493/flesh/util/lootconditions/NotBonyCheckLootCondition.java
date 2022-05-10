@@ -15,7 +15,7 @@ import java.util.Objects;
 
 import static io.github.funkychicken493.flesh.util.FleshUtils.NOT_BONY;
 
-public class NotBonyCheckLootCondition implements LootCondition {
+public record NotBonyCheckLootCondition() implements LootCondition {
 
     //Implementation method:
     //Returns the LootConditionType for this LootCondition

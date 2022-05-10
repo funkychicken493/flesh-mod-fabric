@@ -31,6 +31,7 @@ public class Base {
             .blockVision((state, world, pos) -> true)
             .nonOpaque()
             .breakInstantly();
+    public static final int fleshFallDelay = 2;
 
 
     public static FabricBlockSettings FLESH_BRICK_BLOCK_BASE = FabricBlockSettings.of(Material.STONE)

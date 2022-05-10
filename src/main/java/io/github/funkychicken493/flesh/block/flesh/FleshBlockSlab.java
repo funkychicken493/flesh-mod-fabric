@@ -2,7 +2,6 @@ package io.github.funkychicken493.flesh.block.flesh;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.LandingBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
@@ -17,6 +16,7 @@ import net.minecraft.world.WorldAccess;
 
 import java.util.Random;
 
+import static io.github.funkychicken493.flesh.init.Base.fleshFallDelay;
 import static net.minecraft.block.FallingBlock.canFallThrough;
 
 public class FleshBlockSlab extends SlabBlock implements LandingBlock {
@@ -24,28 +24,21 @@ public class FleshBlockSlab extends SlabBlock implements LandingBlock {
         super(settings);
     }
 
-    private final int fallDelay = 2;
-
     @SuppressWarnings("deprecation")
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-        world.createAndScheduleBlockTick(pos, this, this.fallDelay);
+        world.createAndScheduleBlockTick(pos, this, fleshFallDelay);
         //Check if the block is placed in top version, if so, set the state to bottom version
         if(state.get(SlabBlock.TYPE) == SlabType.TOP) {
             world.setBlockState(pos, state.with(SlabBlock.TYPE, SlabType.BOTTOM));
         }
         if(world.getBlockState(pos.down()).getBlock() == this && world.getBlockState(pos.down()).get(SlabBlock.TYPE) == SlabType.BOTTOM) {
             world.setBlockState(pos.down(), state.with(SlabBlock.TYPE, SlabType.DOUBLE));
-            if(world.getBlockState(pos).get(SlabBlock.WATERLOGGED)){
-                world.removeBlock(pos, false);
-                world.setBlockState(pos, Blocks.WATER.getDefaultState());
-            }else{
-                world.removeBlock(pos, false);
-            }
+            world.removeBlock(pos, false);
         }
     }
 
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        world.createAndScheduleBlockTick(pos, this, this.fallDelay);
+        world.createAndScheduleBlockTick(pos, this, fleshFallDelay);
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 

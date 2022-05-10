@@ -15,7 +15,7 @@ import java.util.Objects;
 
 import static io.github.funkychicken493.flesh.util.FleshUtils.NOT_FLESHY;
 
-public class NotFleshyCheckLootCondition implements LootCondition {
+public record NotFleshyCheckLootCondition() implements LootCondition {
 
     //Implementation method:
     //Returns the LootConditionType for this LootCondition
