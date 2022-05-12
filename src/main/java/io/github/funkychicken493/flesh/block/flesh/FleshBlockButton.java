@@ -22,7 +22,7 @@ import static io.github.funkychicken493.flesh.init.Base.fleshFallDelay;
 import static net.minecraft.block.FallingBlock.canFallThrough;
 
 public class FleshBlockButton extends AbstractButtonBlock implements LandingBlock {
-    Random Rand = new Random();
+    static Random rand = new Random();
 
     public FleshBlockButton(FabricBlockSettings settings) {
         super(false, settings);
@@ -32,19 +32,19 @@ public class FleshBlockButton extends AbstractButtonBlock implements LandingBloc
     public void powerOn(BlockState state, World world, BlockPos pos) {
         world.setBlockState(pos, state.with(POWERED, true), 3);
         this.updateNeighbors(state, world, pos);
-        world.createAndScheduleBlockTick(pos, this, Rand.nextInt(5, 15));
+        world.createAndScheduleBlockTick(pos, this, rand.nextInt(5, 15));
     }
 
     @Override
     protected SoundEvent getClickSound(boolean powered) {
-        if(Rand.nextBoolean()) {
+        if(rand.nextBoolean()) {
             return getRandomEntitySound();
         }
         return getRandomBlockSound();
     }
 
-    private SoundEvent getRandomEntitySound() {
-        return switch (Rand.nextInt(0, 9)) {
+    public static SoundEvent getRandomEntitySound() {
+        return switch (rand.nextInt(0, 9)) {
             case 0 -> SoundEvents.ENTITY_PARROT_IMITATE_SLIME;
             case 1 -> SoundEvents.ENTITY_SLIME_JUMP;
             case 2 -> SoundEvents.ENTITY_SLIME_SQUISH;
@@ -59,8 +59,8 @@ public class FleshBlockButton extends AbstractButtonBlock implements LandingBloc
         };
     }
 
-    private SoundEvent getRandomBlockSound(){
-        return switch (Rand.nextInt(0, 9)) {
+    public static SoundEvent getRandomBlockSound(){
+        return switch (rand.nextInt(0, 9)) {
             case 0 -> SoundEvents.BLOCK_SLIME_BLOCK_BREAK;
             case 1 -> SoundEvents.BLOCK_SLIME_BLOCK_FALL;
             case 2 -> SoundEvents.BLOCK_SLIME_BLOCK_HIT;
