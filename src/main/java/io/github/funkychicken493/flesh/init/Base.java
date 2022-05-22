@@ -5,18 +5,30 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Material;
 import net.minecraft.sound.BlockSoundGroup;
 
-import static io.github.funkychicken493.flesh.init.InitEverything.FLESH_GROUP_BLOCKS;
-import static io.github.funkychicken493.flesh.init.InitEverything.FLESH_GROUP_ITEMS;
+import static io.github.funkychicken493.flesh.init.Initialization.FLESH_GROUP_BLOCKS;
+import static io.github.funkychicken493.flesh.init.Initialization.FLESH_GROUP_ITEMS;
 
+/**
+ * The type Base.
+ */
 public class Base {
 
+    /**
+     * The constant ITEM_BASE.
+     */
     public static final FabricItemSettings ITEM_BASE = new FabricItemSettings().group(FLESH_GROUP_ITEMS);
+    /**
+     * The constant BLOCK_ITEM_BASE.
+     */
     public static final FabricItemSettings BLOCK_ITEM_BASE = new FabricItemSettings().group(FLESH_GROUP_BLOCKS);
 
+    /**
+     * The constant FLESH_BLOCK_BASE.
+     */
     public static final FabricBlockSettings FLESH_BLOCK_BASE = FabricBlockSettings.of(Material.STONE)
             .sounds(new BlockSoundGroup(
-                        0.5f,
-                        0.7f,
+                    0.5f,
+                    0.7f,
                     BlockSoundGroup.HONEY.getBreakSound(),
                     BlockSoundGroup.SLIME.getStepSound(),
                     BlockSoundGroup.HONEY.getPlaceSound(),
@@ -31,9 +43,15 @@ public class Base {
             .blockVision((state, world, pos) -> true)
             .nonOpaque()
             .breakInstantly();
+    /**
+     * The constant fleshFallDelay.
+     */
     public static final int fleshFallDelay = 2;
 
 
+    /**
+     * The constant FLESH_BRICK_BLOCK_BASE.
+     */
     public static FabricBlockSettings FLESH_BRICK_BLOCK_BASE = FabricBlockSettings.of(Material.STONE)
             .sounds(new BlockSoundGroup(
                     0.5f,
@@ -57,8 +75,14 @@ public class Base {
             .luminance(0)
             .resistance(1.0f);
 
+    /**
+     * The constant FLESH_HARDENED_BLOCK_BASE.
+     */
     public static FabricBlockSettings FLESH_HARDENED_BLOCK_BASE = FabricBlockSettings.copyOf(FLESH_BRICK_BLOCK_BASE);
 
+    /**
+     * The constant FLESH_HARDENED_BRICK_BLOCK_BASE.
+     */
     public static FabricBlockSettings FLESH_HARDENED_BRICK_BLOCK_BASE = FabricBlockSettings.copyOf(FLESH_HARDENED_BLOCK_BASE)
             .sounds(new BlockSoundGroup(
                     0.5f,

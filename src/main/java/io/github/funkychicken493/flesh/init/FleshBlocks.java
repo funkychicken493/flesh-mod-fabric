@@ -16,8 +16,281 @@ import net.minecraft.world.WorldAccess;
 import static io.github.funkychicken493.flesh.Flesh.ModInfo.MOD_ID;
 import static io.github.funkychicken493.flesh.init.Base.BLOCK_ITEM_BASE;
 
+/**
+ * The type Flesh blocks.
+ */
 public class FleshBlocks {
-    public static void FleshBlocksInit() {
+    /**
+     * The constant FLESH_BLOCK.
+     */
+//init blocks
+    public static final Block FLESH_BLOCK = new FallingBlock(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f));
+    /**
+     * The constant FLESH_LANTERN.
+     */
+    public static final Block FLESH_LANTERN = new FallingBlock(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).luminance(10).jumpVelocityMultiplier(0.1f));
+    /**
+     * The constant FLESH_BLOCK_SLAB.
+     */
+    public static final Block FLESH_BLOCK_SLAB = new FleshBlockSlab(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f));
+    /**
+     * The constant FLESH_BLOCK_STAIRS.
+     */
+    public static final Block FLESH_BLOCK_STAIRS = new FleshBlockStairs(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f));
+    /**
+     * The constant FLESH_BLOCK_WALL.
+     */
+    public static final Block FLESH_BLOCK_WALL = new FleshBlockWall(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f));
+    /**
+     * The constant FLESH_BLOCK_FENCE.
+     */
+    public static final Block FLESH_BLOCK_FENCE = new FleshBlockFence(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f));
+    /**
+     * The constant FLESH_BLOCK_FENCE_GATE.
+     */
+    public static final Block FLESH_BLOCK_FENCE_GATE = new FleshBlockFenceGate(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f));
+    /**
+     * The constant FLESH_BLOCK_BUTTON.
+     */
+    public static final Block FLESH_BLOCK_BUTTON = new FleshBlockButton(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(1.0f).collidable(false).slipperiness(0.66f));
+    /**
+     * The constant FLESH_BLOCK_PRESSURE_PLATE.
+     */
+    public static final Block FLESH_BLOCK_PRESSURE_PLATE = new FleshBlockPressurePlate(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f).collidable(false));
+    /**
+     * The constant FLESH_BRICK_BLOCK.
+     */
+    public static final Block FLESH_BRICK_BLOCK = new Block(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant FLESH_BRICK_BLOCK_SLAB.
+     */
+    public static final Block FLESH_BRICK_BLOCK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant FLESH_BRICK_BLOCK_STAIRS.
+     */
+    public static final Block FLESH_BRICK_BLOCK_STAIRS = new StairsAccess(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant FLESH_BRICK_BLOCK_WALL.
+     */
+    public static final Block FLESH_BRICK_BLOCK_WALL = new WallBlock(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant FLESH_BRICK_BLOCK_FENCE.
+     */
+    public static final Block FLESH_BRICK_BLOCK_FENCE = new FenceBlock(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant FLESH_BRICK_BLOCK_FENCE_GATE.
+     */
+    public static final Block FLESH_BRICK_BLOCK_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant FLESH_BRICK_BLOCK_BUTTON.
+     */
+    public static final Block FLESH_BRICK_BLOCK_BUTTON = new ButtonAccess(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f).collidable(false).slipperiness(0.66f), SoundEvents.BLOCK_SHROOMLIGHT_PLACE);
+    /**
+     * The constant FLESH_BRICK_BLOCK_PRESSURE_PLATE.
+     */
+    public static final Block FLESH_BRICK_BLOCK_PRESSURE_PLATE = new PressurePlateAccess(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f).collidable(false), SoundEvents.BLOCK_SHROOMLIGHT_PLACE, SoundEvents.BLOCK_SHROOMLIGHT_BREAK);
+    /**
+     * The constant HARDENED_FLESH_BLOCK.
+     */
+    public static final Block HARDENED_FLESH_BLOCK = new Block(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant HARDENED_FLESH_BLOCK_SLAB.
+     */
+    public static final Block HARDENED_FLESH_BLOCK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant HARDENED_FLESH_BLOCK_STAIRS.
+     */
+    public static final Block HARDENED_FLESH_BLOCK_STAIRS = new StairsAccess(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant HARDENED_FLESH_BLOCK_WALL.
+     */
+    public static final Block HARDENED_FLESH_BLOCK_WALL = new WallBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant HARDENED_FLESH_BLOCK_FENCE.
+     */
+    public static final Block HARDENED_FLESH_BLOCK_FENCE = new FenceBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant HARDENED_FLESH_BLOCK_FENCE_GATE.
+     */
+    public static final Block HARDENED_FLESH_BLOCK_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant HARDENED_FLESH_BLOCK_BUTTON.
+     */
+    public static final Block HARDENED_FLESH_BLOCK_BUTTON = new ButtonAccess(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f).collidable(false).slipperiness(0.66f), SoundEvents.BLOCK_SHROOMLIGHT_PLACE);
+    /**
+     * The constant HARDENED_FLESH_BLOCK_PRESSURE_PLATE.
+     */
+    public static final Block HARDENED_FLESH_BLOCK_PRESSURE_PLATE = new PressurePlateAccess(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f).collidable(false), SoundEvents.BLOCK_SHROOMLIGHT_PLACE, SoundEvents.BLOCK_SHROOMLIGHT_BREAK);
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK.
+     */
+    public static final Block HARDENED_FLESH_BRICK_BLOCK = new Block(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_SLAB.
+     */
+    public static final Block HARDENED_FLESH_BRICK_BLOCK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_STAIRS.
+     */
+    public static final Block HARDENED_FLESH_BRICK_BLOCK_STAIRS = new StairsAccess(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_WALL.
+     */
+    public static final Block HARDENED_FLESH_BRICK_BLOCK_WALL = new WallBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_FENCE.
+     */
+    public static final Block HARDENED_FLESH_BRICK_BLOCK_FENCE = new FenceBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_FENCE_GATE.
+     */
+    public static final Block HARDENED_FLESH_BRICK_BLOCK_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_BUTTON.
+     */
+    public static final Block HARDENED_FLESH_BRICK_BLOCK_BUTTON = new ButtonAccess(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f).collidable(false).slipperiness(0.66f), SoundEvents.BLOCK_CALCITE_PLACE);
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_PRESSURE_PLATE.
+     */
+    public static final Block HARDENED_FLESH_BRICK_BLOCK_PRESSURE_PLATE = new PressurePlateAccess(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f).collidable(false), SoundEvents.BLOCK_CALCITE_PLACE, SoundEvents.BLOCK_CALCITE_BREAK);
+    /**
+     * The constant FLESH_BLOCK_ITEM.
+     */
+//init items for the blocks
+    public static final Item FLESH_BLOCK_ITEM = new BlockItem(FLESH_BLOCK, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_LANTERN_ITEM.
+     */
+    public static final Item FLESH_LANTERN_ITEM = new BlockItem(FLESH_LANTERN, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BLOCK_SLAB_ITEM.
+     */
+    public static final Item FLESH_BLOCK_SLAB_ITEM = new BlockItem(FLESH_BLOCK_SLAB, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BLOCK_STAIRS_ITEM.
+     */
+    public static final Item FLESH_BLOCK_STAIRS_ITEM = new BlockItem(FLESH_BLOCK_STAIRS, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BLOCK_WALL_ITEM.
+     */
+    public static final Item FLESH_BLOCK_WALL_ITEM = new BlockItem(FLESH_BLOCK_WALL, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BLOCK_FENCE_ITEM.
+     */
+    public static final Item FLESH_BLOCK_FENCE_ITEM = new BlockItem(FLESH_BLOCK_FENCE, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BLOCK_FENCE_GATE_ITEM.
+     */
+    public static final Item FLESH_BLOCK_FENCE_GATE_ITEM = new BlockItem(FLESH_BLOCK_FENCE_GATE, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BLOCK_BUTTON_ITEM.
+     */
+    public static final Item FLESH_BLOCK_BUTTON_ITEM = new BlockItem(FLESH_BLOCK_BUTTON, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BLOCK_PRESSURE_PLATE_ITEM.
+     */
+    public static final Item FLESH_BLOCK_PRESSURE_PLATE_ITEM = new BlockItem(FLESH_BLOCK_PRESSURE_PLATE, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BRICK_BLOCK_ITEM.
+     */
+    public static final Item FLESH_BRICK_BLOCK_ITEM = new BlockItem(FLESH_BRICK_BLOCK, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BRICK_BLOCK_SLAB_ITEM.
+     */
+    public static final Item FLESH_BRICK_BLOCK_SLAB_ITEM = new BlockItem(FLESH_BRICK_BLOCK_SLAB, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BRICK_BLOCK_STAIRS_ITEM.
+     */
+    public static final Item FLESH_BRICK_BLOCK_STAIRS_ITEM = new BlockItem(FLESH_BRICK_BLOCK_STAIRS, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BRICK_BLOCK_WALL_ITEM.
+     */
+    public static final Item FLESH_BRICK_BLOCK_WALL_ITEM = new BlockItem(FLESH_BRICK_BLOCK_WALL, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BRICK_BLOCK_FENCE_ITEM.
+     */
+    public static final Item FLESH_BRICK_BLOCK_FENCE_ITEM = new BlockItem(FLESH_BRICK_BLOCK_FENCE, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BRICK_BLOCK_FENCE_GATE_ITEM.
+     */
+    public static final Item FLESH_BRICK_BLOCK_FENCE_GATE_ITEM = new BlockItem(FLESH_BRICK_BLOCK_FENCE_GATE, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BRICK_BLOCK_BUTTON_ITEM.
+     */
+    public static final Item FLESH_BRICK_BLOCK_BUTTON_ITEM = new BlockItem(FLESH_BRICK_BLOCK_BUTTON, BLOCK_ITEM_BASE);
+    /**
+     * The constant FLESH_BRICK_BLOCK_PRESSURE_PLATE_ITEM.
+     */
+    public static final Item FLESH_BRICK_BLOCK_PRESSURE_PLATE_ITEM = new BlockItem(FLESH_BRICK_BLOCK_PRESSURE_PLATE, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BLOCK_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BLOCK_ITEM = new BlockItem(HARDENED_FLESH_BLOCK, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BLOCK_SLAB_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BLOCK_SLAB_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_SLAB, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BLOCK_STAIRS_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BLOCK_STAIRS_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_STAIRS, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BLOCK_WALL_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BLOCK_WALL_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_WALL, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BLOCK_FENCE_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BLOCK_FENCE_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_FENCE, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BLOCK_FENCE_GATE_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BLOCK_FENCE_GATE_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_FENCE_GATE, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BLOCK_BUTTON_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BLOCK_BUTTON_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_BUTTON, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BLOCK_PRESSURE_PLATE_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BLOCK_PRESSURE_PLATE_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_PRESSURE_PLATE, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BRICK_BLOCK_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_SLAB_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BRICK_BLOCK_SLAB_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_SLAB, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_STAIRS_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BRICK_BLOCK_STAIRS_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_STAIRS, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_WALL_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BRICK_BLOCK_WALL_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_WALL, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_FENCE_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BRICK_BLOCK_FENCE_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_FENCE, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_FENCE_GATE_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BRICK_BLOCK_FENCE_GATE_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_FENCE_GATE, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_BUTTON_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BRICK_BLOCK_BUTTON_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_BUTTON, BLOCK_ITEM_BASE);
+    /**
+     * The constant HARDENED_FLESH_BRICK_BLOCK_PRESSURE_PLATE_ITEM.
+     */
+    public static final Item HARDENED_FLESH_BRICK_BLOCK_PRESSURE_PLATE_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_PRESSURE_PLATE, BLOCK_ITEM_BASE);
+
+    /**
+     * Init flesh blocks.
+     */
+    public static void initFleshBlocks() {
         //Blocks
         registerBlock(FLESH_BLOCK, "flesh_block");
         registerBlock(FLESH_LANTERN, "flesh_lantern");
@@ -89,75 +362,25 @@ public class FleshBlocks {
         registerItem(HARDENED_FLESH_BRICK_BLOCK_PRESSURE_PLATE_ITEM, "hardened_flesh_brick_pressure_plate");
     }
 
-    //init blocks
-    public static final Block FLESH_BLOCK = new FallingBlock(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f));
-    public static final Block FLESH_LANTERN = new FallingBlock(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).luminance(10).jumpVelocityMultiplier(0.1f));
-    public static final Block FLESH_BLOCK_SLAB = new FleshBlockSlab(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f));
-    public static final Block FLESH_BLOCK_STAIRS = new FleshBlockStairs(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f));
-    public static final Block FLESH_BLOCK_WALL = new FleshBlockWall(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f));
-    public static final Block FLESH_BLOCK_FENCE = new FleshBlockFence(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f));
-    public static final Block FLESH_BLOCK_FENCE_GATE = new FleshBlockFenceGate(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f));
-    public static final Block FLESH_BLOCK_BUTTON = new FleshBlockButton(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(1.0f).collidable(false).slipperiness(0.66f));
-    public static final Block FLESH_BLOCK_PRESSURE_PLATE = new FleshBlockPressurePlate(FabricBlockSettings.copyOf(Base.FLESH_BLOCK_BASE).jumpVelocityMultiplier(0.1f).collidable(false));
-    public static final Block FLESH_BRICK_BLOCK = new Block(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block FLESH_BRICK_BLOCK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block FLESH_BRICK_BLOCK_STAIRS = new StairsAccess(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block FLESH_BRICK_BLOCK_WALL = new WallBlock(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block FLESH_BRICK_BLOCK_FENCE = new FenceBlock(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block FLESH_BRICK_BLOCK_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block FLESH_BRICK_BLOCK_BUTTON = new ButtonAccess(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f).collidable(false).slipperiness(0.66f), SoundEvents.BLOCK_SHROOMLIGHT_PLACE);
-    public static final Block FLESH_BRICK_BLOCK_PRESSURE_PLATE = new PressurePlateAccess(FabricBlockSettings.copyOf(Base.FLESH_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f).collidable(false), SoundEvents.BLOCK_SHROOMLIGHT_PLACE, SoundEvents.BLOCK_SHROOMLIGHT_BREAK);
-    public static final Block HARDENED_FLESH_BLOCK = new Block(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block HARDENED_FLESH_BLOCK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block HARDENED_FLESH_BLOCK_STAIRS = new StairsAccess(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block HARDENED_FLESH_BLOCK_WALL = new WallBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block HARDENED_FLESH_BLOCK_FENCE = new FenceBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block HARDENED_FLESH_BLOCK_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block HARDENED_FLESH_BLOCK_BUTTON = new ButtonAccess(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f).collidable(false).slipperiness(0.66f), SoundEvents.BLOCK_SHROOMLIGHT_PLACE);
-    public static final Block HARDENED_FLESH_BLOCK_PRESSURE_PLATE = new PressurePlateAccess(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BLOCK_BASE).jumpVelocityMultiplier(0.85f).collidable(false), SoundEvents.BLOCK_SHROOMLIGHT_PLACE, SoundEvents.BLOCK_SHROOMLIGHT_BREAK);
-    public static final Block HARDENED_FLESH_BRICK_BLOCK = new Block(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block HARDENED_FLESH_BRICK_BLOCK_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block HARDENED_FLESH_BRICK_BLOCK_STAIRS = new StairsAccess(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block HARDENED_FLESH_BRICK_BLOCK_WALL = new WallBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block HARDENED_FLESH_BRICK_BLOCK_FENCE = new FenceBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block HARDENED_FLESH_BRICK_BLOCK_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f));
-    public static final Block HARDENED_FLESH_BRICK_BLOCK_BUTTON = new ButtonAccess(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f).collidable(false).slipperiness(0.66f), SoundEvents.BLOCK_CALCITE_PLACE);
-    public static final Block HARDENED_FLESH_BRICK_BLOCK_PRESSURE_PLATE = new PressurePlateAccess(FabricBlockSettings.copyOf(Base.FLESH_HARDENED_BRICK_BLOCK_BASE).jumpVelocityMultiplier(0.85f).collidable(false), SoundEvents.BLOCK_CALCITE_PLACE, SoundEvents.BLOCK_CALCITE_BREAK);
+    /**
+     * Register block.
+     *
+     * @param block The block to register
+     * @param name  The name of the block
+     */
+    public static void registerBlock(Block block, String name) {
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, name), block);
+    }
 
-    //init items for the blocks
-    public static final Item FLESH_BLOCK_ITEM = new BlockItem(FLESH_BLOCK, BLOCK_ITEM_BASE);
-    public static final Item FLESH_LANTERN_ITEM = new BlockItem(FLESH_LANTERN, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BLOCK_SLAB_ITEM = new BlockItem(FLESH_BLOCK_SLAB, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BLOCK_STAIRS_ITEM = new BlockItem(FLESH_BLOCK_STAIRS, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BLOCK_WALL_ITEM = new BlockItem(FLESH_BLOCK_WALL, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BLOCK_FENCE_ITEM = new BlockItem(FLESH_BLOCK_FENCE, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BLOCK_FENCE_GATE_ITEM = new BlockItem(FLESH_BLOCK_FENCE_GATE, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BLOCK_BUTTON_ITEM = new BlockItem(FLESH_BLOCK_BUTTON, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BLOCK_PRESSURE_PLATE_ITEM = new BlockItem(FLESH_BLOCK_PRESSURE_PLATE, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BRICK_BLOCK_ITEM = new BlockItem(FLESH_BRICK_BLOCK, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BRICK_BLOCK_SLAB_ITEM = new BlockItem(FLESH_BRICK_BLOCK_SLAB, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BRICK_BLOCK_STAIRS_ITEM = new BlockItem(FLESH_BRICK_BLOCK_STAIRS, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BRICK_BLOCK_WALL_ITEM = new BlockItem(FLESH_BRICK_BLOCK_WALL, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BRICK_BLOCK_FENCE_ITEM = new BlockItem(FLESH_BRICK_BLOCK_FENCE, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BRICK_BLOCK_FENCE_GATE_ITEM = new BlockItem(FLESH_BRICK_BLOCK_FENCE_GATE, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BRICK_BLOCK_BUTTON_ITEM = new BlockItem(FLESH_BRICK_BLOCK_BUTTON, BLOCK_ITEM_BASE);
-    public static final Item FLESH_BRICK_BLOCK_PRESSURE_PLATE_ITEM = new BlockItem(FLESH_BRICK_BLOCK_PRESSURE_PLATE, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BLOCK_ITEM = new BlockItem(HARDENED_FLESH_BLOCK, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BLOCK_SLAB_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_SLAB, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BLOCK_STAIRS_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_STAIRS, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BLOCK_WALL_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_WALL, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BLOCK_FENCE_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_FENCE, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BLOCK_FENCE_GATE_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_FENCE_GATE, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BLOCK_BUTTON_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_BUTTON, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BLOCK_PRESSURE_PLATE_ITEM = new BlockItem(HARDENED_FLESH_BLOCK_PRESSURE_PLATE, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BRICK_BLOCK_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BRICK_BLOCK_SLAB_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_SLAB, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BRICK_BLOCK_STAIRS_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_STAIRS, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BRICK_BLOCK_WALL_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_WALL, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BRICK_BLOCK_FENCE_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_FENCE, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BRICK_BLOCK_FENCE_GATE_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_FENCE_GATE, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BRICK_BLOCK_BUTTON_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_BUTTON, BLOCK_ITEM_BASE);
-    public static final Item HARDENED_FLESH_BRICK_BLOCK_PRESSURE_PLATE_ITEM = new BlockItem(HARDENED_FLESH_BRICK_BLOCK_PRESSURE_PLATE, BLOCK_ITEM_BASE);
+    /**
+     * Register item.
+     *
+     * @param item The item to register
+     * @param name The name of the item
+     */
+    public static void registerItem(Item item, String name) {
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), item);
+    }
 
     private static class StairsAccess extends StairsBlock {
         private StairsAccess(FabricBlockSettings settings) {
@@ -166,7 +389,11 @@ public class FleshBlocks {
     }
 
     private static class ButtonAccess extends AbstractButtonBlock {
+        /**
+         * The Sound.
+         */
         SoundEvent sound;
+
         private ButtonAccess(FabricBlockSettings settings, SoundEvent sound) {
             super(false, settings);
             this.sound = sound;
@@ -179,8 +406,15 @@ public class FleshBlocks {
     }
 
     private static class PressurePlateAccess extends PressurePlateBlock {
+        /**
+         * The Depress sound.
+         */
         SoundEvent depressSound;
+        /**
+         * The Press sound.
+         */
         SoundEvent pressSound;
+
         private PressurePlateAccess(Settings settings, SoundEvent depressSound, SoundEvent pressSound) {
             super(ActivationRule.EVERYTHING, settings);
 
@@ -197,13 +431,5 @@ public class FleshBlocks {
         protected void playDepressSound(WorldAccess world, BlockPos pos) {
             world.playSound(null, pos, depressSound, SoundCategory.BLOCKS, 0.3F, 0.7F);
         }
-    }
-
-    public static void registerBlock(Block block, String name) {
-        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, name), block);
-    }
-
-    public static void registerItem(Item item, String name) {
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), item);
     }
 }

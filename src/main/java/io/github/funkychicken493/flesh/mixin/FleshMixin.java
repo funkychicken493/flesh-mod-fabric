@@ -11,13 +11,16 @@ import static io.github.funkychicken493.flesh.init.FleshItems.BONE_MARROW;
 import static io.github.funkychicken493.flesh.init.FleshItems.FLESH_PASTE;
 import static io.github.funkychicken493.flesh.mixin.RegisterCompostableItemInvoker.registerCompostableItem;
 
+/**
+ * The type Flesh mixin.
+ */
 @Mixin(ComposterBlock.class)
 public abstract class FleshMixin {
 
-	@Inject(method = "registerDefaultCompostableItems", at = @At(value = "TAIL"))
-	private static void registerDefaultCompostableItems(CallbackInfo ci) {
-		registerCompostableItem(0.1F, FLESH_PASTE);
-		registerCompostableItem(0.1F, BONE_MARROW);
-		registerCompostableItem(0.9F, FLESH_BLOCK_ITEM);
-	}
+    @Inject(method = "registerDefaultCompostableItems", at = @At(value = "TAIL"))
+    private static void registerDefaultCompostableItems(CallbackInfo ci) {
+        registerCompostableItem(0.1F, FLESH_PASTE);
+        registerCompostableItem(0.1F, BONE_MARROW);
+        registerCompostableItem(0.9F, FLESH_BLOCK_ITEM);
+    }
 }

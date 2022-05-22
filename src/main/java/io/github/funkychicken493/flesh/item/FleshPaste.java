@@ -19,14 +19,33 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
+/**
+ * The type Flesh paste.
+ */
 public class FleshPaste extends Item {
     private static final StatusEffectInstance HUNGER = new StatusEffectInstance(StatusEffects.HUNGER, 300, 0);
     private static final StatusEffectInstance NAUSEA = new StatusEffectInstance(StatusEffects.NAUSEA, 600, 2);
-    private static final FoodComponent fleshFoodComponent = new FoodComponent.Builder().hunger(2).saturationModifier(0.3F).statusEffect(HUNGER, 0.7f).statusEffect(NAUSEA, 0.2f).meat().build();
+    private static final FoodComponent FLESH_FOOD_COMPONENT = new FoodComponent.Builder().hunger(2).saturationModifier(0.3F).statusEffect(HUNGER, 0.7f).statusEffect(NAUSEA, 0.2f).meat().build();
+
+    /**
+     * Instantiates a new Flesh paste.
+     *
+     * @param settings the settings
+     */
     public FleshPaste(FabricItemSettings settings) {
-        super((settings.food(fleshFoodComponent))
+        super((settings.food(FLESH_FOOD_COMPONENT))
         );
     }
+
+    /**
+     * On use typed action result.
+     *
+     * @param world        the world
+     * @param playerEntity the player entity
+     * @param hand         the hand
+     *
+     * @return success
+     */
     @SuppressWarnings("unused")
     public TypedActionResult<ItemStack> onUse(World world, PlayerEntity playerEntity, Hand hand) {
         playerEntity.playSound(SoundEvents.BLOCK_HONEY_BLOCK_BREAK, SoundCategory.MASTER, 2.0F, 1.46F);
@@ -35,6 +54,6 @@ public class FleshPaste extends Item {
 
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add( new TranslatableText("item.flesh.flesh_paste.tooltip0").formatted(Formatting.GRAY) );
+        tooltip.add(new TranslatableText("item.flesh.flesh_paste.tooltip0").formatted(Formatting.GRAY));
     }
 }

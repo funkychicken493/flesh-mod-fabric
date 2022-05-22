@@ -15,6 +15,9 @@ import java.util.Objects;
 
 import static io.github.funkychicken493.flesh.util.FleshUtils.NOT_BONY;
 
+/**
+ * The type Not bony check loot condition.
+ */
 public record NotBonyCheckLootCondition() implements LootCondition {
 
     //Implementation method:
@@ -33,16 +36,27 @@ public record NotBonyCheckLootCondition() implements LootCondition {
         }
     }
 
-    //Implementation method:
+    /**
+     * The type Builder.
+     */
+//Implementation method:
     //Builds the LootCondition
     public static class Builder implements LootCondition.Builder {
-        public Builder() {}
+        /**
+         * Instantiates a new Builder.
+         */
+        public Builder() {
+        }
+
         public NotBonyCheckLootCondition build() {
             return new NotBonyCheckLootCondition();
         }
     }
 
-    //Implementation method:
+    /**
+     * The type Serializer.
+     */
+//Implementation method:
     //Serializes the LootCondition
     //Unused, but required by LootCondition
     @SuppressWarnings("unused")

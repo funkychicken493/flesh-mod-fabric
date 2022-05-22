@@ -11,16 +11,24 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
+/**
+ * The type Flesh brick.
+ */
 public class FleshBrick extends Item {
+    /**
+     * Instantiates a new Flesh brick.
+     *
+     * @param settings Item settings
+     */
     public FleshBrick(FabricItemSettings settings) {
         super(settings);
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
         float pitch = new Random().nextFloat() + new Random().nextFloat();
-        if(new Random().nextBoolean()){
+        if (new Random().nextBoolean()) {
             playerEntity.playSound(SoundEvents.BLOCK_HONEY_BLOCK_BREAK, 2.0F, pitch);
-        }else{
+        } else {
             playerEntity.playSound(SoundEvents.BLOCK_SLIME_BLOCK_BREAK, 2.0F, pitch);
         }
         return TypedActionResult.success(playerEntity.getStackInHand(hand));

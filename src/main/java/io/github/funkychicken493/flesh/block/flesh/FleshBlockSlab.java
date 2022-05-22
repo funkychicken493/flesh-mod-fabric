@@ -19,7 +19,15 @@ import java.util.Random;
 import static io.github.funkychicken493.flesh.init.Base.fleshFallDelay;
 import static net.minecraft.block.FallingBlock.canFallThrough;
 
+/**
+ * The type Flesh block slab.
+ */
 public class FleshBlockSlab extends SlabBlock implements LandingBlock {
+    /**
+     * Instantiates a new Flesh block slab.
+     *
+     * @param settings the settings
+     */
     public FleshBlockSlab(FabricBlockSettings settings) {
         super(settings);
     }
@@ -28,10 +36,10 @@ public class FleshBlockSlab extends SlabBlock implements LandingBlock {
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
         world.createAndScheduleBlockTick(pos, this, fleshFallDelay);
         //Check if the block is placed in top version, if so, set the state to bottom version
-        if(state.get(SlabBlock.TYPE) == SlabType.TOP) {
+        if (state.get(SlabBlock.TYPE) == SlabType.TOP) {
             world.setBlockState(pos, state.with(SlabBlock.TYPE, SlabType.BOTTOM));
         }
-        if(world.getBlockState(pos.down()).getBlock() == this && world.getBlockState(pos.down()).get(SlabBlock.TYPE) == SlabType.BOTTOM) {
+        if (world.getBlockState(pos.down()).getBlock() == this && world.getBlockState(pos.down()).get(SlabBlock.TYPE) == SlabType.BOTTOM) {
             world.setBlockState(pos.down(), state.with(SlabBlock.TYPE, SlabType.DOUBLE));
             world.removeBlock(pos, false);
         }
@@ -53,9 +61,9 @@ public class FleshBlockSlab extends SlabBlock implements LandingBlock {
         if (random.nextInt(16) == 0) {
             BlockPos blockPos = pos.down();
             if (canFallThrough(world.getBlockState(blockPos))) {
-                double d = (double)pos.getX() + random.nextDouble();
-                double e = (double)pos.getY() - 0.05D;
-                double f = (double)pos.getZ() + random.nextDouble();
+                double d = (double) pos.getX() + random.nextDouble();
+                double e = (double) pos.getY() - 0.05D;
+                double f = (double) pos.getZ() + random.nextDouble();
                 world.addParticle(new BlockStateParticleEffect(ParticleTypes.FALLING_DUST, state), d, e, f, 0.0D, 0.0D, 0.0D);
             }
         }

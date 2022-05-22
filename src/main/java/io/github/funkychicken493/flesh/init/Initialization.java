@@ -19,19 +19,51 @@ import net.minecraft.world.GameRules;
 
 import static io.github.funkychicken493.flesh.Flesh.ModInfo.LOGGER;
 import static io.github.funkychicken493.flesh.init.FleshBlocks.FLESH_BLOCK_ITEM;
-import static io.github.funkychicken493.flesh.init.FleshBlocks.FleshBlocksInit;
+import static io.github.funkychicken493.flesh.init.FleshBlocks.initFleshBlocks;
 import static io.github.funkychicken493.flesh.init.FleshItems.*;
 import static io.github.funkychicken493.flesh.util.FleshUtils.DropRegistry.boneMarrowDroppers;
 import static io.github.funkychicken493.flesh.util.FleshUtils.DropRegistry.fleshPasteDroppers;
 
+/**
+ * The type Initialization.
+ */
 //Class to initialize everything (items, blocks, etc.)
 //This is where the magic happens
-public class InitEverything {
-    public static void EverythingInit() {
+public class Initialization {
+    /**
+     * The constant FLESH_GROUP_ITEMS.
+     */
+    public static final ItemGroup FLESH_GROUP_ITEMS = FabricItemGroupBuilder.create(new Identifier("flesh", "items"))
+            .icon(() -> new ItemStack(FLESH_PASTE))
+            .build();
+    /**
+     * The constant FLESH_GROUP_BLOCKS.
+     */
+    public static final ItemGroup FLESH_GROUP_BLOCKS = FabricItemGroupBuilder.create(new Identifier("flesh", "blocks"))
+            .icon(() -> new ItemStack(FLESH_BLOCK_ITEM))
+            .build();
+    /**
+     * The game rule SHOULD_DROP_BONE_MARROW.
+     */
+//Put the game rules here for public access:
+    //Game rule for the flesh paste loot table condition
+    public static final GameRules.Key<GameRules.BooleanRule> SHOULD_DROP_BONE_MARROW =
+            GameRuleRegistry.register("mobsDropBoneMarrow", GameRules.Category.DROPS, GameRuleFactory.createBooleanRule(true));
+    /**
+     * The game rule SHOULD_DROP_FLESH_PASTE.
+     */
+//Game rule for the bone marrow loot table condition
+    public static final GameRules.Key<GameRules.BooleanRule> SHOULD_DROP_FLESH_PASTE =
+            GameRuleRegistry.register("mobsDropFleshPaste", GameRules.Category.DROPS, GameRuleFactory.createBooleanRule(true));
 
-        FleshItemsInit();
+    /**
+     * Initialize everything needed for the mod.
+     */
+    public static void everything() {
 
-        FleshBlocksInit();
+        initFleshItems();
+
+        initFleshBlocks();
 
         try {
             //Initialize the loot tables
@@ -75,21 +107,5 @@ public class InitEverything {
             throw new RuntimeException(e);
         }
     }
-
-    public static final ItemGroup FLESH_GROUP_ITEMS = FabricItemGroupBuilder.create(new Identifier("flesh", "items"))
-            .icon(() -> new ItemStack(FLESH_PASTE))
-            .build();
-
-    public static final ItemGroup FLESH_GROUP_BLOCKS = FabricItemGroupBuilder.create(new Identifier("flesh", "blocks"))
-            .icon(() -> new ItemStack(FLESH_BLOCK_ITEM))
-            .build();
-
-    //Put the game rules here for public access:
-    //Game rule for the flesh paste loot table condition
-    public static final GameRules.Key<GameRules.BooleanRule> SHOULD_DROP_BONE_MARROW =
-            GameRuleRegistry.register("mobsDropBoneMarrow", GameRules.Category.DROPS, GameRuleFactory.createBooleanRule(true));
-    //Game rule for the bone marrow loot table condition
-    public static final GameRules.Key<GameRules.BooleanRule> SHOULD_DROP_FLESH_PASTE =
-            GameRuleRegistry.register("mobsDropFleshPaste", GameRules.Category.DROPS, GameRuleFactory.createBooleanRule(true));
 
 }

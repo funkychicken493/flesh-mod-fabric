@@ -15,6 +15,9 @@ import java.util.Objects;
 
 import static io.github.funkychicken493.flesh.util.FleshUtils.NOT_FLESHY;
 
+/**
+ * The type Not fleshy check loot condition.
+ */
 public record NotFleshyCheckLootCondition() implements LootCondition {
 
     //Implementation method:
@@ -33,16 +36,27 @@ public record NotFleshyCheckLootCondition() implements LootCondition {
         }
     }
 
-    //Implementation method:
+    /**
+     * The type Builder.
+     */
+//Implementation method:
     //Builds the LootCondition
     public static class Builder implements LootCondition.Builder {
-        public Builder() {}
+        /**
+         * Instantiates a new Builder.
+         */
+        public Builder() {
+        }
+
         public NotFleshyCheckLootCondition build() {
             return new NotFleshyCheckLootCondition();
         }
     }
 
-    //Implementation method:
+    /**
+     * The type Serializer.
+     */
+//Implementation method:
     //Serializes the LootCondition
     //Unused, but required by LootCondition
     @SuppressWarnings("unused")

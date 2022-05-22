@@ -18,9 +18,20 @@ import java.util.Random;
 import static io.github.funkychicken493.flesh.init.Base.fleshFallDelay;
 import static net.minecraft.block.FallingBlock.canFallThrough;
 
+/**
+ * The type Flesh block pressure plate.
+ */
 public class FleshBlockPressurePlate extends PressurePlateBlock implements LandingBlock {
+    /**
+     * The Rand.
+     */
     static Random rand = new Random();
 
+    /**
+     * Instantiates a new Flesh block pressure plate.
+     *
+     * @param settings the settings
+     */
     public FleshBlockPressurePlate(Settings settings) {
         super(ActivationRule.EVERYTHING, settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(POWERED, false));
@@ -28,18 +39,18 @@ public class FleshBlockPressurePlate extends PressurePlateBlock implements Landi
 
     @Override
     public void playPressSound(WorldAccess world, BlockPos pos) {
-        if(rand.nextBoolean()) {
-            world.playSound(null, pos, FleshBlockButton.getRandomEntitySound(), SoundCategory.BLOCKS, 0.3F, 0.6F);
-        }else{
+        if (rand.nextBoolean()) {
+            world.playSound(null, pos, FleshBlockButton.getRandomEntitySound((ServerWorld) world), SoundCategory.BLOCKS, 0.3F, 0.6F);
+        } else {
             world.playSound(null, pos, FleshBlockButton.getRandomBlockSound(), SoundCategory.BLOCKS, 0.3F, 0.5F);
         }
     }
 
     @Override
     public void playDepressSound(WorldAccess world, BlockPos pos) {
-        if(rand.nextBoolean()) {
-            world.playSound(null, pos, FleshBlockButton.getRandomEntitySound(), SoundCategory.BLOCKS, 0.3F, 0.6F);
-        }else{
+        if (rand.nextBoolean()) {
+            world.playSound(null, pos, FleshBlockButton.getRandomEntitySound((ServerWorld) world), SoundCategory.BLOCKS, 0.3F, 0.6F);
+        } else {
             world.playSound(null, pos, FleshBlockButton.getRandomBlockSound(), SoundCategory.BLOCKS, 0.3F, 0.5F);
         }
     }
@@ -68,9 +79,9 @@ public class FleshBlockPressurePlate extends PressurePlateBlock implements Landi
         if (random.nextInt(16) == 0) {
             BlockPos blockPos = pos.down();
             if (canFallThrough(world.getBlockState(blockPos))) {
-                double d = (double)pos.getX() + random.nextDouble();
-                double e = (double)pos.getY() - 0.05D;
-                double f = (double)pos.getZ() + random.nextDouble();
+                double d = (double) pos.getX() + random.nextDouble();
+                double e = (double) pos.getY() - 0.05D;
+                double f = (double) pos.getZ() + random.nextDouble();
                 world.addParticle(new BlockStateParticleEffect(ParticleTypes.FALLING_DUST, state), d, e, f, 0.0D, 0.0D, 0.0D);
             }
         }

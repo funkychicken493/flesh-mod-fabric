@@ -10,9 +10,12 @@ import net.minecraft.loot.context.LootContext;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.JsonSerializer;
 
-import static io.github.funkychicken493.flesh.init.InitEverything.SHOULD_DROP_FLESH_PASTE;
+import static io.github.funkychicken493.flesh.init.Initialization.SHOULD_DROP_FLESH_PASTE;
 import static io.github.funkychicken493.flesh.util.FleshUtils.lootContextHasGamerule;
 
+/**
+ * The type Flesh paste check loot condition.
+ */
 public record FleshPasteCheckLootCondition() implements LootCondition {
 
     //Implementation method:
@@ -27,16 +30,27 @@ public record FleshPasteCheckLootCondition() implements LootCondition {
         return lootContextHasGamerule(lootContext, SHOULD_DROP_FLESH_PASTE);
     }
 
-    //Implementation method:
+    /**
+     * The type Builder.
+     */
+//Implementation method:
     //Builds the LootCondition
     public static class Builder implements LootCondition.Builder {
-        public Builder() {}
+        /**
+         * Instantiates a new Builder.
+         */
+        public Builder() {
+        }
+
         public FleshPasteCheckLootCondition build() {
             return new FleshPasteCheckLootCondition();
         }
     }
 
-    //Implementation method:
+    /**
+     * The type Serializer.
+     */
+//Implementation method:
     //Serializes the LootCondition
     //Unused, but required by LootCondition
     @SuppressWarnings("unused")

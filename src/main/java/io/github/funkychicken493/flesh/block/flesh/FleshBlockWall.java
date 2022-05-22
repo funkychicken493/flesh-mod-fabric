@@ -18,8 +18,16 @@ import java.util.Random;
 import static io.github.funkychicken493.flesh.init.Base.fleshFallDelay;
 import static net.minecraft.block.FallingBlock.canFallThrough;
 
+/**
+ * The type Flesh block wall.
+ */
 @SuppressWarnings({"deprecation", "unused"})
 public class FleshBlockWall extends WallBlock implements LandingBlock {
+    /**
+     * Instantiates a new Flesh block wall.
+     *
+     * @param settings the settings
+     */
     public FleshBlockWall(FabricBlockSettings settings) {
         super(settings);
     }
@@ -45,9 +53,9 @@ public class FleshBlockWall extends WallBlock implements LandingBlock {
         if (random.nextInt(16) == 0) {
             BlockPos blockPos = pos.down();
             if (canFallThrough(world.getBlockState(blockPos))) {
-                double d = (double)pos.getX() + random.nextDouble();
-                double e = (double)pos.getY() - 0.05D;
-                double f = (double)pos.getZ() + random.nextDouble();
+                double d = (double) pos.getX() + random.nextDouble();
+                double e = (double) pos.getY() - 0.05D;
+                double f = (double) pos.getZ() + random.nextDouble();
                 world.addParticle(new BlockStateParticleEffect(ParticleTypes.FALLING_DUST, state), d, e, f, 0.0D, 0.0D, 0.0D);
             }
         }

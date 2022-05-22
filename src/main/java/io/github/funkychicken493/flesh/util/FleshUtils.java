@@ -14,41 +14,79 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Stack;
 
+/**
+ * The type Flesh utils.
+ */
 //Utility class for Flesh
 public class FleshUtils {
+    /**
+     * The constant NOT_FLESHY.
+     */
     public static final TagKey<EntityType<?>> NOT_FLESHY = TagKey.of(Registry.ENTITY_TYPE_KEY, new Identifier("flesh", "not_fleshy"));
+    /**
+     * The constant NOT_BONY.
+     */
     public static final TagKey<EntityType<?>> NOT_BONY = TagKey.of(Registry.ENTITY_TYPE_KEY, new Identifier("flesh", "not_bony"));
+
+    /**
+     * Loot context has gamerule boolean.
+     *
+     * @param context the context
+     * @param ruleKey the rule key
+     *
+     * @return the boolean
+     */
+//Awful shit starts here, don't look to long it'll burn your eyes
+    public static boolean lootContextHasGamerule(LootContext context, GameRules.Key<GameRules.BooleanRule> ruleKey) {
+        return Objects.requireNonNull(context.get(LootContextParameters.THIS_ENTITY)).getWorld().getGameRules().copy().getBoolean(ruleKey);
+    }
+
+    /**
+     * The type Drop registry.
+     */
     public static class DropRegistry {
-        public static Identifier [] DropFactory(
+        /**
+         * Drop factory identifier [ ].
+         *
+         * @param droppersInitializer        the droppers initializer
+         * @param droppersBlacklist          the droppers blacklist
+         * @param droppersWhitelist          the droppers whitelist
+         * @param droppersExclusionNames     the droppers exclusion names
+         * @param droppersInvalidSpawnGroups the droppers invalid spawn groups
+         * @param entityTypes                the entity types
+         *
+         * @return the identifier [ ]
+         */
+        public static Identifier[] DropFactory(
                 Stack<Identifier> droppersInitializer,
                 Stack<Identifier> droppersBlacklist,
                 String[] droppersWhitelist,
                 String[] droppersExclusionNames,
                 Stack<SpawnGroup> droppersInvalidSpawnGroups,
                 DefaultedRegistry<EntityType<?>> entityTypes
-        ){
+        ) {
             //Initialize the result stack
             Stack<Identifier> result = new Stack<>();
 
             //Check if the initializer input is null
-            if(droppersInitializer != null){
+            if (droppersInitializer != null) {
                 //Add the initializer input to the result stack
                 result.addAll(droppersInitializer);
             }
             //Check if the blacklist input is null
-            if(droppersBlacklist == null){
+            if (droppersBlacklist == null) {
                 //Fix it to be a new stack
                 droppersBlacklist = new Stack<>();
             }
             //Check if the spawn group blacklist input is null
-            if(droppersInvalidSpawnGroups == null){
+            if (droppersInvalidSpawnGroups == null) {
                 //Fix it to be a new stack
                 droppersInvalidSpawnGroups = new Stack<>();
             }
 
             //Check if the entity types registry is null, if not,
             //loop through the entity types
-            if(entityTypes != null) {
+            if (entityTypes != null) {
                 //foreach entity type as dropper
                 for (EntityType<?> dropper : entityTypes) {
                     //Check for the following conditions:
@@ -91,8 +129,13 @@ public class FleshUtils {
             return false;
         }
 
-        //Initialize fleshPasteDroppers Identifier array
-        public static Identifier [] fleshPasteDroppers(){
+        /**
+         * Flesh paste droppers identifier [ ].
+         *
+         * @return the identifier [ ]
+         */
+//Initialize fleshPasteDroppers Identifier array
+        public static Identifier[] fleshPasteDroppers() {
             return DropFactory(null,
                     null,
                     //Whitelist names
@@ -110,8 +153,13 @@ public class FleshUtils {
                     Registry.ENTITY_TYPE);
         }
 
-        //Initialize boneMarrowDroppers Identifier array
-        public static Identifier [] boneMarrowDroppers(){
+        /**
+         * Bone marrow droppers identifier [ ].
+         *
+         * @return the identifier [ ]
+         */
+//Initialize boneMarrowDroppers Identifier array
+        public static Identifier[] boneMarrowDroppers() {
             return DropFactory(null,
                     null,
                     //Whitelist names
@@ -126,10 +174,5 @@ public class FleshUtils {
                     null,
                     Registry.ENTITY_TYPE);
         }
-    }
-
-    //Awful shit starts here, don't look to long it'll burn your eyes
-    public static boolean lootContextHasGamerule(LootContext context, GameRules.Key<GameRules.BooleanRule> ruleKey) {
-        return Objects.requireNonNull(context.get(LootContextParameters.THIS_ENTITY)).getWorld().getGameRules().copy().getBoolean(ruleKey);
     }
 }
