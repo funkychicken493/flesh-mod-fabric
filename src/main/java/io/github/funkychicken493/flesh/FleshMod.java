@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 /**
  * The type Flesh.
  */
-public class Flesh implements ModInitializer {
+public class FleshMod implements ModInitializer {
     //Override the initialize method to register my stuff
     @Override
     public void onInitialize() {
@@ -32,25 +32,25 @@ public class Flesh implements ModInitializer {
     @SuppressWarnings("unused")
     public static final class ModInfo {
         /**
-         * The constant MOD_ID.
+         * Mod ID.
          */
         public static final String MOD_ID = "flesh";
         /**
-         * The constant MOD_NAME.
+         * Mod name.
          */
         public static final String MOD_NAME = "Flesh Mod";
         /**
-         * The constant MOD_VERSION.
+         * Version.
          */
         public static final String MOD_VERSION = "1.0.0";
         /**
-         * The constant MOD_AUTHOR.
+         * ME.
          */
         public static final String MOD_AUTHOR = "funkychicken493";
         /**
          * The logger used for logging the logs of the logging mod.
          */
-//init logger provided by slf4j
+        //init logger provided by slf4j
         public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     }
 }

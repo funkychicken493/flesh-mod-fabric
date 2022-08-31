@@ -13,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.WorldAccess;
 
-import static io.github.funkychicken493.flesh.Flesh.ModInfo.MOD_ID;
+import static io.github.funkychicken493.flesh.FleshMod.ModInfo.MOD_ID;
 import static io.github.funkychicken493.flesh.init.Base.BLOCK_ITEM_BASE;
 
 /**
