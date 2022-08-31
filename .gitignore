@@ -34,3 +34,4 @@ src/main/java/io/github/funkychicken493/block/.DS_Store
 /.gradle/
 run/
 src:main:resources:assets:minecraft:texts:splashes.txt
+.DS_Store
