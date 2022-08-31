@@ -17,7 +17,7 @@ import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.GameRules;
 
-import static io.github.funkychicken493.flesh.Flesh.ModInfo.LOGGER;
+import static io.github.funkychicken493.flesh.FleshMod.ModInfo.LOGGER;
 import static io.github.funkychicken493.flesh.init.FleshBlocks.FLESH_BLOCK_ITEM;
 import static io.github.funkychicken493.flesh.init.FleshBlocks.initFleshBlocks;
 import static io.github.funkychicken493.flesh.init.FleshItems.*;

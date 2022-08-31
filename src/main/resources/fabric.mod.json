@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.funkychicken493.flesh.Flesh"
+      "io.github.funkychicken493.flesh.FleshMod"
     ],
     "client": [
       "io.github.funkychicken493.flesh.FleshClient"
